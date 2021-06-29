@@ -2,10 +2,11 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import React from "react";
 import "./map.css"
 
-const ManhattanMap = (props) => {
+
+const ManhattanMap = () => {
     return (
         <div className="map_container">
-            <MapContainer center={[40.754932, -73.954016]} zoom={12} scrollWheelZoom={false}
+            <MapContainer center={[40.754932, -73.954016]} zoom={13} scrollWheelZoom={false}
                 className="leaflet-container">
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -12,7 +12,15 @@ function App() {
 
   const getBorough = (borough) => {
     console.log(borough)
+    return borough;
   }
+
+  const getYear = (year) => {
+    console.log(year);
+    return year;
+  }
+
+
   return (
     <div className="App">
       <Intro />
@@ -21,7 +29,8 @@ function App() {
 
         <Grid item >
           <div className="UI_Container">
-            <BoroughMenu passBoroughToParent={getBorough} /> <YearSlider />
+            <BoroughMenu passBoroughToParent={getBorough} />
+            <YearSlider passYearToParent={getYear} />
           </div>
 
         </Grid>
