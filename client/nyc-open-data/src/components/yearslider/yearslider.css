@@ -1,8 +1,12 @@
+.value{
+    font-size: 30px;
+}
+
 .slider_container{
     display: flex;
     flex-direction: column;
     width: 50vw;
-    height:7vh;
+    height:8vh;
 
 }
 
@@ -13,7 +17,8 @@
     height: 100%;
     border: solid black;
    border-radius: 16px;
-   background: transparent;
+    background-color: #AEBDBB;
+    opacity: .8;
 }
 
 .slider -webkit-slider-thumb {
@@ -23,7 +28,7 @@
 .slider -ms-track {
     width: 100%;
     cursor: pointer;
-  
+    background-color: ;
     /* Hides the slider so custom styles can be added */
     background: transparent; 
     border-color: transparent;
@@ -40,9 +45,11 @@
     height: 36px;
     width: 16px;
     border-radius: 3px;
-    background: green;
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
     cursor: pointer;
-    margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    border-radius: 16px;
+     /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+     /* margin-top: -14px; */
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
   }
   

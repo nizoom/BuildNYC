@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import Intro from "./components/intro/intro"
 import ManhattanMap from './components/map/map';
 import YearSlider from './components/yearslider/yearslider';
+import BoroughMenu from './components/boroughmenu/boroughmenu';
 
 import '@fontsource/poppins';
 
@@ -14,8 +15,8 @@ function App() {
 
       <Grid container direction="column">
 
-        <Grid item>
-          <YearSlider />
+        <Grid item >
+          <YearSlider />  <BoroughMenu />
         </Grid>
         <Grid item>
           <ManhattanMap />
