@@ -9,6 +9,10 @@ import BoroughMenu from './components/boroughmenu/boroughmenu';
 import '@fontsource/poppins';
 
 function App() {
+
+  const getBorough = (borough) => {
+    console.log(borough)
+  }
   return (
     <div className="App">
       <Intro />
@@ -16,8 +20,16 @@ function App() {
       <Grid container direction="column">
 
         <Grid item >
-          <YearSlider />  <BoroughMenu />
+          <div className="UI_Container">
+            <BoroughMenu passBoroughToParent={getBorough} /> <YearSlider />
+          </div>
+
         </Grid>
+
+        {/* <Grid item md={6} >
+
+        </Grid> */}
+
         <Grid item>
           <ManhattanMap />
         </Grid>
