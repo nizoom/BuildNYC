@@ -4,7 +4,7 @@ import "./map.css"
 
 const ManhattanMap = () => {
     return (
-        <div>
+        <div style={{ margin: "auto", width: "100%" }}>
             <MapContainer center={[40.754932, -73.984016]} zoom={13} scrollWheelZoom={false}
                 className="leaflet-container">
                 <TileLayer
@@ -16,8 +16,8 @@ const ManhattanMap = () => {
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
                 </Marker>
-            </MapContainer>
-        </div>
+            </MapContainer >
+        </div >
     )
 }
 

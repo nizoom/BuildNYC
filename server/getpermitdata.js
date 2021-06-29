@@ -9,7 +9,7 @@ async function getPermitData(year, job_type) {
     const response = await fetch("https://data.cityofnewyork.us/resource/ipu4-2q9a.json?" +
         "job_type=DM&" + //JOB TYPE 
         "borough=MANHATTAN&" + //LOCATION
-        "$where=issuance_date between '2019-01-01T12:00:00' and '2020-01-01T12:00:00'", { //TIME 
+        "$where=issuance_date between '1989-01-01T12:00:00' and '1990-01-01T12:00:00'", { //TIME 
         method: "GET",
         data: {
             "app_token": apiKey
