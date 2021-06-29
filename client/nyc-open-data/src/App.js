@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from "react";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography'
 import Intro from "./components/intro/intro"
@@ -10,16 +11,37 @@ import '@fontsource/poppins';
 
 function App() {
 
+  const [request, setRequest] = useState({
+    borough: "",
+    job_type: "",
+    year: 1990,
+  })
+
+  const callAPI = (borough, job_type, year) => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+    //.then((data) => setMessage(data));
+  }
+
   const getBorough = (borough) => {
     console.log(borough)
-    return borough;
+    const newBorough = borough
+    setRequest({
+      ...request,
+      borough: newBorough
+    });
   }
 
   const getYear = (year) => {
-    console.log(year);
-    return year;
+    const newYear = year
+    setRequest({
+      ...request,
+      year: newYear
+    });
   }
 
+  console.log(request)
 
   return (
     <div className="App">

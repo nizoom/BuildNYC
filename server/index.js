@@ -1,14 +1,19 @@
-const getPermitData = require("./getPermitData");
+require('dotenv').config()
 
-const getMapCenter = require("./getmapcenter")
+const express = require("express");
 
-async function index() {
+const PORT = process.env.PORT || 3001;
 
-    //get year requested from front end 
+const app = express();
 
-    //process year to UTC code 
+console.log(process.env.PORT)
 
-    getPermitData(year, job_type) //,borough
 
-    getMapCenter(borough)
-}
+
+app.get("/api", (req, res) => {
+    res.json({ message: "Hello from server!" });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server listening on ${PORT}`);
+});
