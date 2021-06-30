@@ -1,5 +1,7 @@
-async function getMapCenter(borough) {
+function getMapCenter(borough) {
+    //console.log(borough);
     switch (borough) {
+
         case "Manhattan":
             return [40.754932, -73.954016]
         case "Brooklyn":
@@ -14,4 +16,5 @@ async function getMapCenter(borough) {
     }
 }
 
-module.export = getMapCenter;
+
+module.exports = getMapCenter;

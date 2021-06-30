@@ -1,14 +1,29 @@
 const getPermitData = require("./getPermitData");
 
-const getMapCenter = require("./getmapcenter")
+const formatYear = require('./processrequestminifuncs/formatyear')
 
-async function index() {
+const formatJobType = require('./processrequestminifuncs/formatjob')
+
+
+async function processRequest(job_type, year, borough) {
 
     //get year requested from front end 
 
     //process year to UTC code 
 
-    getPermitData(year, job_type) //,borough
+    const formattedYears = formatYear(year)
 
-    getMapCenter(borough)
+    const formattedJobType = formatJobType(job_type)
+
+    //borough has to be all caps for it to be API readable
+
+    console.log(borough)
+
+    const formattedBorough = borough.toUpperCase();
+
+    const dataPoints = await getPermitData(formattedYears, formattedJobType, formattedBorough)
+
+
 }
+
+module.exports = processRequest;

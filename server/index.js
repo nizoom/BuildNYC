@@ -6,17 +6,21 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-//console.log(process.env.PORT)
+const processRequest = require('./processrequest')
 
-// /users/:userId/books/:bookId
-///api/borough/Brooklyn/type/Demolition/year/1995 404 (Not Found)
+const getMapCenter = require('./getmapcenter')
 
-//"/api/borough/:boroughName/type/:job_type/span/:year"
-
-//api / borough / Queens
 
 app.get("/borough/:boroughName/type/:job_type/timeSpan/:year", (req, res) => {
     console.log(req.params)
+    const { boroughName, job_type, year } = req.params;
+    //console.log(borough)
+
+    const mapCenteringCoordinates = getMapCenter(boroughName)
+
+
+    const dataPoints = processRequest(job_type, year, boroughName)
+
     res.json({ message: "Hello from server!" });
 
 });

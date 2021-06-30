@@ -72,7 +72,6 @@ function App() {
     // }
   }
 
-
   useEffect(() => {
     if (request.borough !== "" && request.job_type !== "") {
       callAPI();
@@ -102,9 +101,6 @@ function App() {
 
         </Grid>
 
-        {/* <Grid item md={6} >
-
-        </Grid> */}
 
         <Grid item>
           <ManhattanMap />
