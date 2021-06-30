@@ -12,16 +12,27 @@ import '@fontsource/poppins';
 
 function App() {
 
+  const [counter, setCounter] = useState(0) // counts if enough changes have been made to call API
+  //NEEDS UPDATINGS
+
+  //also is sending old state to API
+
   const [request, setRequest] = useState({
     borough: "",
     job_type: "",
     year: 1990,
   })
 
-  const callAPI = (borough, job_type, year) => {
-    fetch("/api")
+  const callAPI = () => {
+    console.log(request.borough)
+    //console.log("request at API time " + request.borough)
+
+    const [borough, job_type, year] = [request.borough, request.job_type, request.year]
+
+    fetch(`/borough/${borough}/type/${job_type}/timeSpan/${year}`)
       .then((res) => res.json())
       .then((data) => console.log(data))
+      .catch((err) => console.log(err))
     //.then((data) => setMessage(data));
   }
 
@@ -31,23 +42,33 @@ function App() {
 
     switch (component) {
       case "borough":
+        setCounter(counter + 1)
         setRequest({
           ...request,
           borough: updatedItem
         })
         break;
       case "job_type":
+        setCounter(counter + 1)
         setRequest({
           ...request,
           job_type: updatedItem
         })
         break;
       case "year":
+        setCounter(counter + 1)
         setRequest({
           ...request,
           year: updatedItem
         })
         break;
+    }
+    //console.log(request)
+    //if all fields are active 
+
+
+    if (counter >= 3) {
+      callAPI();
     }
   }
 

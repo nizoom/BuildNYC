@@ -6,12 +6,19 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-console.log(process.env.PORT)
+//console.log(process.env.PORT)
 
+// /users/:userId/books/:bookId
+///api/borough/Brooklyn/type/Demolition/year/1995 404 (Not Found)
 
+//"/api/borough/:boroughName/type/:job_type/span/:year"
 
-app.get("/api", (req, res) => {
+//api / borough / Queens
+
+app.get("/borough/:boroughName/type/:job_type/timeSpan/:year", (req, res) => {
+    console.log(req.params)
     res.json({ message: "Hello from server!" });
+
 });
 
 app.listen(PORT, () => {
