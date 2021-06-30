@@ -6,6 +6,7 @@ import Intro from "./components/intro/intro"
 import ManhattanMap from './components/map/map';
 import YearSlider from './components/yearslider/yearslider';
 import BoroughMenu from './components/boroughmenu/boroughmenu';
+import JobMenu from './components/jobmenu/jobmenu';
 
 import '@fontsource/poppins';
 
@@ -24,22 +25,32 @@ function App() {
     //.then((data) => setMessage(data));
   }
 
-  const getBorough = (borough) => {
-    console.log(borough)
-    const newBorough = borough
-    setRequest({
-      ...request,
-      borough: newBorough
-    });
+  const changeFromUser = (component, updatedItem) => {
+
+    console.log(component, updatedItem);
+
+    switch (component) {
+      case "borough":
+        setRequest({
+          ...request,
+          borough: updatedItem
+        })
+        break;
+      case "job_type":
+        setRequest({
+          ...request,
+          job_type: updatedItem
+        })
+        break;
+      case "year":
+        setRequest({
+          ...request,
+          year: updatedItem
+        })
+        break;
+    }
   }
 
-  const getYear = (year) => {
-    const newYear = year
-    setRequest({
-      ...request,
-      year: newYear
-    });
-  }
 
   console.log(request)
 
@@ -51,8 +62,10 @@ function App() {
 
         <Grid item >
           <div className="UI_Container">
-            <BoroughMenu passBoroughToParent={getBorough} />
-            <YearSlider passYearToParent={getYear} />
+            <BoroughMenu passBoroughToParent={changeFromUser} />
+            <JobMenu passJobTypeToParent={changeFromUser} />
+            <YearSlider passYearToParent={changeFromUser} />
+
           </div>
 
         </Grid>
@@ -71,3 +84,21 @@ function App() {
 }
 
 export default App;
+
+
+// const getBorough = (borough) => {
+  //   console.log(borough)
+  //   const newBorough = borough
+  //   setRequest({
+  //     ...request,
+  //     borough: newBorough
+  //   });
+  // }
+
+  // const getYear = (year) => {
+  //   const newYear = year
+  //   setRequest({
+  //     ...request,
+  //     year: newYear
+  //   });
+  // }

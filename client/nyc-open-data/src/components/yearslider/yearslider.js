@@ -15,7 +15,7 @@ const YearSlider = (props) => {
     function handleOnChange(e) {
         const year = e.target.value;
         setValue(year)
-        props.passYearToParent(year)
+        props.passYearToParent("year", year)
     }
 
 

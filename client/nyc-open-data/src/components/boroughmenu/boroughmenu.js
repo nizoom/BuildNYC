@@ -11,9 +11,10 @@ const BoroughMenu = (props) => {
     const [boroughPick, setBoroughPick] = useState("")
 
     const handleMenuChange = (e) => {
-        const borough = e.target.value
-        setBoroughPick(borough)
-        props.passBoroughToParent(borough)
+        //ADD COMPOENT TYPE//ADD COMPOENT TYPE
+        const newBorough = e.target.value
+        setBoroughPick(newBorough)
+        props.passBoroughToParent("borough", newBorough)
     }
 
 
