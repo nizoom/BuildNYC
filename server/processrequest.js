@@ -4,6 +4,8 @@ const formatYear = require('./processrequestminifuncs/formatyear')
 
 const formatJobType = require('./processrequestminifuncs/formatjob')
 
+const formatPermitData = require('./processrequestminifuncs/formatpermitdata')
+
 
 async function processRequest(job_type, year, borough) {
 
@@ -17,11 +19,15 @@ async function processRequest(job_type, year, borough) {
 
     //borough has to be all caps for it to be API readable
 
-    console.log(borough)
+    //console.log(borough)
 
     const formattedBorough = borough.toUpperCase();
 
-    const dataPoints = await getPermitData(formattedYears, formattedJobType, formattedBorough)
+    const rawPermitData = await getPermitData(formattedYears, formattedJobType, formattedBorough)
+
+    const formattedPermitData = formatPermitData(rawPermitData, borough)
+
+
 
 
 }
