@@ -14,10 +14,14 @@ async function getPermitData(formattedYears, formattedJobType, formattedBorough)
         data: {
             "app_token": apiKey
         }
-    }).then(data => console.log(data.json()))
+    }).then(response => response.json())
+        // .then(data => console.log("Here is the data " + data))
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
-    //console.log(response.json());
-    //return response.json();
+    console.log(response)
+    return response
 }
 
 //getPermitData().then(data => console.log(data))
