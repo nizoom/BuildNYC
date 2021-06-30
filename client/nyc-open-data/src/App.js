@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography'
 import Intro from "./components/intro/intro"
@@ -24,6 +24,7 @@ function App() {
   })
 
   const callAPI = () => {
+    console.log("API function called")
     console.log(request.borough)
     //console.log("request at API time " + request.borough)
 
@@ -64,13 +65,23 @@ function App() {
         break;
     }
     //console.log(request)
-    //if all fields are active 
 
 
-    if (counter >= 3) {
-      callAPI();
-    }
+    // if (counter >= 3) { // if job_type and borough are not blank 
+    //   callAPI();
+    // }
   }
+
+
+  useEffect(() => {
+    if (request.borough !== "" && request.job_type !== "") {
+      callAPI();
+    } else {
+      console.log("a field is empty")
+    }; // This is be executed when `loading` state changes
+  }, [request])
+
+
 
 
   console.log(request)
