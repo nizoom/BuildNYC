@@ -27,7 +27,7 @@ async function processRequest(job_type, year, borough) {
 
     const formattedPermitData = formatPermitData(rawPermitData, borough)
 
-
+    return formattedPermitData
 
 
 }

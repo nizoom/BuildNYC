@@ -25,13 +25,3 @@ function formatPermitData(rawData, borough) {
 }
 
 module.exports = formatPermitData;
-
-//     house__: '1457',
-//     street_name: 'ROSEDALE AVE',
-//     zip_code: '10460',
-//     owner_s_first_name: 'GAC',
-//     owner_s_last_name: 'HAXHARI',
-//     owner_s_business_name: 'NONE',
-//     permittee_s_business_name: 'ARBERIA & ASSOCIATES INC',
-//     gis_latitude: '40.836861',
-//     gis_longitude: '-73.870005'

@@ -20,9 +20,11 @@ app.get("/borough/:boroughName/type/:job_type/timeSpan/:year", (req, res) => {
 
     boroughName = "The Bronx" ? "Bronx" : boroughName; //API only takes "Bronx" not "The Bronx"
 
-    const dataPoints = processRequest(job_type, year, boroughName)
+    const formattedPermitData = processRequest(job_type, year, boroughName)
 
-    res.json({ message: "Hello from server!" });
+    //res.json({ message: "Hello from server!" });
+
+    res.send(mapCenteringCoordinates)
 
 });
 
