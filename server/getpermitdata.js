@@ -21,7 +21,8 @@ async function getPermitData(formattedYears, formattedJobType, formattedBorough)
         owner_s_business_name,
         permittee_s_business_name,
         gis_latitude,
-        gis_longitude
+        gis_longitude,
+        bin__
         `
 
         , { //TIME 

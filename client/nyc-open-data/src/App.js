@@ -40,8 +40,8 @@ function App() {
 
     const response = await fetch(`/borough/${borough}/type/${job_type}/timeSpan/${year}`)
       .then((res) => res.json())
-      .then((data) => console.log(data))
       .then((data) => receivedEntries(data))
+      .then((data) => console.log("data in app.js " + data))
       .catch((err) => console.log(err))
     //.then((data) => setMessage(data));
     return response;
@@ -117,7 +117,7 @@ function App() {
 
 
         <Grid item>
-          <MyMap centerCoordinates={mapCenter} mapShift={borough} />
+          <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries} />
         </Grid>
       </Grid>
 
@@ -126,21 +126,3 @@ function App() {
 }
 
 export default App;
-
-
-// const getBorough = (borough) => {
-  //   console.log(borough)
-  //   const newBorough = borough
-  //   setRequest({
-  //     ...request,
-  //     borough: newBorough
-  //   });
-  // }
-
-  // const getYear = (year) => {
-  //   const newYear = year
-  //   setRequest({
-  //     ...request,
-  //     year: newYear
-  //   });
-  // }

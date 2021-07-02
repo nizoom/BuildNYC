@@ -22,6 +22,14 @@ const MyMap = (props) => {
         map.flyTo([coordinates[0], coordinates[1]], 13)
     }
 
+    //const popups = 
+
+    //console.log("All data in component " + (props.permitLocales))
+    console.log(props.permitsObject)
+    const permitLocales = props.permitsObject.allData;
+    console.log(permitLocales)
+
+
     return (
         <div className="map_container">
             <MapContainer center={[40.754932, -73.954016]} zoom={13} scrollWheelZoom={false}
@@ -33,11 +41,20 @@ const MyMap = (props) => {
                 />
 
 
-                <Marker position={[51.505, -0.09]}>
+                {permitLocales != undefined ? permitLocales.map(locale => (
+                    <Marker
+                        key={locale.binNum}
+                        position={locale.coordinates}
+                    >
+
+                    </Marker>
+                )) : null}
+
+                {/* <Marker position={[51.505, -0.09]}>
                     <Popup>
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
-                </Marker>
+                </Marker> */}
             </MapContainer >
         </div >
     )

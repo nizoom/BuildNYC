@@ -12,12 +12,19 @@ function formatPermitData(rawData, borough) {
 
         const coordinates = [parseFloat(building.gis_latitude), parseFloat(building.gis_longitude)]
 
+        //console.log(coordinates)
+
+        const binNum = `${building.bin__}`
+
+        console.log(binNum)
+
         return { //each element of the new array will be made up of these objects
             address: address,
             ownerBizName: ownerBizName,
             ownerName: ownerName,
             permitInfo: permitInfo,
-            coordinates: coordinates
+            coordinates: coordinates,
+            binNum: binNum
         }
     })
 
