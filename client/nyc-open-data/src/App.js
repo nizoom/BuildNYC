@@ -27,6 +27,8 @@ function App() {
 
   const [borough, newBorough] = useState(false);
 
+  const [entries, receivedEntries] = useState([])
+
 
   async function callAPI() {
     console.log("API function called")
@@ -37,10 +39,9 @@ function App() {
 
 
     const response = await fetch(`/borough/${borough}/type/${job_type}/timeSpan/${year}`)
-      //.then((res) => res.json())
-      //.then((data) => setMapCenter(data))
+      .then((res) => res.json())
       .then((data) => console.log(data))
-      //testing map centering
+      .then((data) => receivedEntries(data))
       .catch((err) => console.log(err))
     //.then((data) => setMessage(data));
     return response;
@@ -87,7 +88,7 @@ function App() {
   useEffect(() => {
     if (request.borough !== "" && request.job_type !== "") {
       callAPI();
-
+    } else {
       console.log("a field is empty")
     }; // This is be executed when `loading` state changes
   }, [request])

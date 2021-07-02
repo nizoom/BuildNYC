@@ -19,13 +19,13 @@ async function processRequest(job_type, year, borough) {
 
     //borough has to be all caps for it to be API readable
 
-    //console.log(borough)
-
     const formattedBorough = borough.toUpperCase();
 
     const rawPermitData = await getPermitData(formattedYears, formattedJobType, formattedBorough)
 
-    const formattedPermitData = formatPermitData(rawPermitData, borough)
+    const formattedPermitData = await formatPermitData(rawPermitData, borough)
+
+    //console.log(formattedPermitData)
 
     return formattedPermitData
 

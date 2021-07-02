@@ -9,20 +9,17 @@ const MyMap = (props) => {
     const [map, setMap] = useState(null)
 
 
-    console.log(props.mapShift)
-    console.log("the coordinates are " + props.centerCoordinates)
+    // console.log(props.mapShift)
+    // console.log("the coordinates are " + props.centerCoordinates)
 
-    const decision = props.mapShift ? getCenter(props.centerCoordinates) : null
+    const determineCenter = props.mapShift ? moveMap(props.centerCoordinates) : null
 
 
-    function getCenter(coordinates) {
-        console.log("we're flying!!!!")
-        console.log(typeof coordinates)
-        console.log(coordinates[0])
-
+    function moveMap(coordinates) {
+        // console.log("we're flying!!!!")
+        // console.log(coordinates[0])
         //const [long, lat] = coordinates[0, 1]
         map.flyTo([coordinates[0], coordinates[1]], 13)
-
     }
 
     return (

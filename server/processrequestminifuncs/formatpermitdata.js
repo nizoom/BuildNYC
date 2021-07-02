@@ -21,7 +21,9 @@ function formatPermitData(rawData, borough) {
         }
     })
 
-    console.log(formattedData);
+    //console.log(formattedData);
+
+    return formattedData;
 }
 
 module.exports = formatPermitData;
