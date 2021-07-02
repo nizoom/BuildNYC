@@ -42,8 +42,10 @@ const MyMap = (props) => {
 
 
                 {permitLocales != undefined ? permitLocales.map(locale => (
+
+
                     <Marker
-                        key={locale.binNum}
+                        key={`${locale.binNum} + ${Math.random().toString()}`}
                         position={locale.coordinates}
                     >
 
