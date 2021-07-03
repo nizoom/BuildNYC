@@ -16,11 +16,18 @@ app.get("/borough/:boroughName/type/:job_type/timeSpan/:year", async (req, res) 
     let { boroughName, job_type, year } = req.params;
     //console.log(borough)
 
-    //const mapCenteringCoordinates = getMapCenter(boroughName)
+    console.log(boroughName)
 
-    boroughName = "The Bronx" ? "Bronx" : boroughName; //API only takes "Bronx" not "The Bronx"
+    const determinedBoroughName = boroughName => { //API only takes "Bronx" not "The Bronx"
+        if (boroughName === "The Bronx") {
+            return "Bronx"
+        }
+        return boroughName
+    }
 
-    const formattedPermitData = await processRequest(job_type, year, boroughName)
+    const formattedBorughName = determinedBoroughName(boroughName)
+
+    const formattedPermitData = await processRequest(job_type, year, formattedBorughName)
 
     //res.json({ message: "Hello from server!" });
 

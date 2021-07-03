@@ -1,6 +1,13 @@
+const filterCoordinates = require("./filtercoordinates")
+
 function formatPermitData(rawData, borough) {
     //format each object into an address, owner info, and coordinates section 
-    const formattedData = rawData.map(building => {
+    //console.log("this is raw")
+    //console.log(rawData)
+    const rawDataWithValidatedCoordinates = filterCoordinates(rawData)
+
+    const formattedData = rawDataWithValidatedCoordinates.map(building => { //this will have to be cleaned "raw data" 
+        //post coordinate NaN removal
 
         const address = `${building.house__} ${building.street_name}, ${borough}, ${building.zip_code}`
 
@@ -16,7 +23,7 @@ function formatPermitData(rawData, borough) {
 
         const binNum = `${building.bin__}`
 
-        console.log(binNum)
+        //console.log(binNum)
 
         return { //each element of the new array will be made up of these objects
             address: address,
