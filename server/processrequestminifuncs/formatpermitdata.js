@@ -11,11 +11,11 @@ function formatPermitData(rawData, borough) {
 
         const address = `${building.house__} ${building.street_name}, ${borough}, ${building.zip_code}`
 
-        const ownerBizName = `${building.owner_s_first_name} ${building.owner_s_last_name}`
+        const ownerName = `${building.owner_s_first_name} ${building.owner_s_last_name}`
 
-        const ownerName = `Owner's Business Name: ${building.owner_s_business_name}`
+        const ownerBizName = `${building.owner_s_business_name}`
 
-        const permitInfo = `Permittee's Business Name : ${building.permittee_s_business_name}`
+        const permitInfo = `${building.permittee_s_business_name}`
 
         const coordinates = [parseFloat(building.gis_latitude), parseFloat(building.gis_longitude)]
 
@@ -35,7 +35,7 @@ function formatPermitData(rawData, borough) {
         }
     })
 
-    //console.log(formattedData);
+    console.log(formattedData);
 
     return formattedData;
 }

@@ -46,8 +46,15 @@ const MyMap = (props) => {
 
                     <Marker
                         key={`${locale.binNum} + ${Math.random().toString()}`}
-                        position={locale.coordinates}
-                    >
+                        position={locale.coordinates}>
+                        <Popup className="popup">
+                            <p>{locale.address} </p>
+                            <p>Owner: {locale.ownerName} </p>
+                            <p>Owning Business Name: {locale.ownerBizName} </p>
+                            <p>Permit Recepient: {locale.permitInfo} </p>
+
+
+                        </Popup>
 
                     </Marker>
                 )) : null}

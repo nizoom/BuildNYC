@@ -7,6 +7,6 @@
 
 }
 
-/* .map_container{
-    padding: 0, 10%, 0, 10%;
-} */
+.popup p {
+     font-weight: bold;
+}
