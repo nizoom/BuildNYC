@@ -117,7 +117,8 @@ function App() {
 
 
         <Grid item>
-          <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries} />
+          <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries}
+            job_type={request.job_type} />
         </Grid>
       </Grid>
 

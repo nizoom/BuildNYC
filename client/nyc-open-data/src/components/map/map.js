@@ -2,6 +2,11 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import React, { useState } from "react";
 import "./map.css"
 import { map } from 'leaflet';
+//import CustomMarker from './markercomponenttest';
+import assignMarker from './assignmarker';
+import L from 'leaflet';
+//import "leaflet/dist/leaflet.css"
+import Orange from "../../media/orangemarker.png"
 
 
 const MyMap = (props) => {
@@ -16,8 +21,7 @@ const MyMap = (props) => {
 
 
     function moveMap(coordinates) {
-        // console.log("we're flying!!!!")
-        // console.log(coordinates[0])
+
         //const [long, lat] = coordinates[0, 1]
         map.flyTo([coordinates[0], coordinates[1]], 13)
     }
@@ -25,9 +29,29 @@ const MyMap = (props) => {
     //const popups = 
 
     //console.log("All data in component " + (props.permitLocales))
-    console.log(props.permitsObject)
+
     const permitLocales = props.permitsObject.allData;
-    console.log(permitLocales)
+
+
+    const markerIcon = assignMarker(props.job_type)
+
+
+    // delete L.Icon.Default.prototype._getIconUrl;
+
+    // const orangeIcon = new L.Icon({
+
+    //     // iconUrl: require('./media/orangemarker.png'),
+    //     iconUrl: Orange,
+    //     iconSize: [15, 30],     //W x H
+    //     shadowSize: [50, 64],
+    //     iconAnchor: [22, 94],
+    //     shadowAnchor: [4, 62],
+    //     popupAnchor: [-3, -76]
+
+    // });
+
+
+
 
 
     return (
@@ -46,7 +70,9 @@ const MyMap = (props) => {
 
                     <Marker
                         key={`${locale.binNum} + ${Math.random().toString()}`}
-                        position={locale.coordinates}>
+                        position={locale.coordinates}
+                        icon={markerIcon}
+                    >
                         <Popup className="popup">
                             <p>{locale.address} </p>
                             <p>Owner: {locale.ownerName} </p>
@@ -77,3 +103,4 @@ export default MyMap;
 // 	maxZoom: 22,
 // 	subdomains: 'abcd',
 // 	accessToken: '<your accessToken>'
+
