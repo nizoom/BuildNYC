@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-image: url("media/citybackground.jpg");
+  background-size: cover;
 }
 
 .UI_Container{

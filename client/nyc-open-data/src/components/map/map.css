@@ -10,3 +10,7 @@
 .popup p {
      font-weight: bold;
 }
+
+.map_container{
+    margin-bottom: 20px;
+}

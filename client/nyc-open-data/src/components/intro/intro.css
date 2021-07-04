@@ -1,0 +1,15 @@
+.outter_wrapper{
+    padding-top: 20px;
+  
+}
+
+.title_div{
+    padding-top: 30px;
+    background-image: linear-gradient(to right,#7C65AF, #1B549D);
+    width: 80%;
+    margin: auto;
+    border-radius: 16px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 300;
+}
