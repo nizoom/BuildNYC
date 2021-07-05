@@ -6,6 +6,8 @@ const formatJobType = require('./processrequestminifuncs/formatjob')
 
 const formatPermitData = require('./processrequestminifuncs/formatpermitdata')
 
+const getJobTotals = require('./processrequestminifuncs/jobtotals')
+
 
 async function processRequest(job_type, year, borough) {
 
@@ -24,6 +26,13 @@ async function processRequest(job_type, year, borough) {
     const rawPermitData = await getPermitData(formattedYears, formattedJobType, formattedBorough)
 
     const formattedPermitData = await formatPermitData(rawPermitData, borough)
+
+
+    //AGGRAGATING GRAPH DATA
+
+    const jobTypeTotals = await getJobTotals(formattedYears, formattedJobType, formattedBorough)
+
+
 
     //console.log(formattedPermitData)
 
