@@ -11,9 +11,9 @@ export default function assignMarker(job_type) {
             iconUrl: color,
             iconSize: [17, 30],     //Width x Height
             shadowSize: [50, 64],
-            iconAnchor: [22, 94],
+            iconAnchor: [0, 0],
             shadowAnchor: [4, 62],
-            popupAnchor: [-1, -76]
+            popupAnchor: [9.5, 0]
 
         });
 

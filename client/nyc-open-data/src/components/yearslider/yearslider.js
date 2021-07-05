@@ -20,13 +20,15 @@ const YearSlider = (props) => {
 
 
     return (
-        <div className="slider_container">
-            <input type="range" min={1990} max={calcYear()} value={value}
-                className="slider"
-                onChange={handleOnChange}
-            />
+        <div className="component_wrapper">
+            <div className="slider_container">
+                <input type="range" min={1990} max={calcYear()} value={value}
+                    className="slider"
+                    onChange={handleOnChange}
+                />
 
-            <div className="value"> {value} </div>
+                <div className="value"> {value} </div>
+            </div>
         </div>
     )
 }
