@@ -22,7 +22,8 @@ async function getPermitData(formattedYears, formattedJobType, formattedBorough)
         permittee_s_business_name,
         gis_latitude,
         gis_longitude,
-        bin__
+        bin__,
+        job__
         `
 
         , { //TIME 
@@ -36,7 +37,7 @@ async function getPermitData(formattedYears, formattedJobType, formattedBorough)
             console.error('Error:', error);
         });
 
-    //console.log(response)
+    console.log(response)
     return response
 }
 

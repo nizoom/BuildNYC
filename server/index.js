@@ -8,8 +8,6 @@ const app = express();
 
 const processRequest = require('./processrequest')
 
-const getMapCenter = require('./getmapcenter')
-
 
 app.get("/borough/:boroughName/type/:job_type/timeSpan/:year", async (req, res) => {
     //console.log(req.params)
