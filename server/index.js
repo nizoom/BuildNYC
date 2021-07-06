@@ -25,11 +25,14 @@ app.get("/borough/:boroughName/type/:job_type/timeSpan/:year", async (req, res) 
 
     const formattedBorughName = determineBoroughName(boroughName)
 
-    const formattedPermitData = await processRequest(job_type, year, formattedBorughName)
+    const formattedPermitDataAndTotals = await processRequest(job_type, year, formattedBorughName)
+
+    const [formattedPermitData, permitTotals] = formattedPermitDataAndTotals
 
     //console.log(formattedPermitData)
     //res.send("Hello from backend")
-    res.send({ allData: formattedPermitData })
+
+    res.send({ allData: [formattedPermitData, permitTotals] })
 
 });
 

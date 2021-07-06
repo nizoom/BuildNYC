@@ -9,6 +9,8 @@ import BoroughMenu from './components/boroughmenu/boroughmenu';
 import JobMenu from './components/jobmenu/jobmenu';
 import { GetBoroughCoordinates } from './components/boroughmenu/getcoordinates';
 
+import PieChart from './components/charts/chart';
+
 import '@fontsource/poppins';
 
 function App() {
@@ -29,10 +31,13 @@ function App() {
 
   const [entries, receivedEntries] = useState([])
 
+  const [chartData, setChartData] = useState([])
+
+  const [responseObj, setResponseObj] = useState({})
 
   async function callAPI() {
     console.log("API function called")
-    console.log(request.borough)
+    //console.log(request.borough)
     //console.log("request at API time " + request.borough)
 
     const [borough, job_type, year] = [request.borough, request.job_type, request.year]
@@ -40,15 +45,32 @@ function App() {
 
     const response = await fetch(`/borough/${borough}/type/${job_type}/timeSpan/${year}`)
       .then((res) => res.json())
-      .then((data) => receivedEntries(data))
-      .then((data) => console.log("data in app.js " + data))
+      //.then((data) => console.log(data))
+      //.then((data) => setResponseObject(data))
+      //.then((data) => console.log("data in app.js " + data))
       .catch((err) => console.log(err))
-    //.then((data) => setMessage(data));
+    console.log(response)
+    setResponseObj(response);
+    // receivedEntries(response[0])
+    // setChartData(response[1])
     return response;
 
 
   }
 
+
+  useEffect(() => { // store data in hooks 
+    // console.log(responseObj)
+    if (responseObj.hasOwnProperty("allData")) {
+      const permitEntries = Object.values(responseObj)[0][0];
+      receivedEntries(permitEntries)
+
+      const pieData = Object.values(responseObj)[0][1]
+      setChartData(pieData);
+
+    }
+
+  }, [responseObj])
 
 
   const changeFromUser = (component, updatedItem) => {
@@ -63,7 +85,7 @@ function App() {
 
         })
         const boroughCoordiantes = GetBoroughCoordinates(updatedItem)
-        console.log(boroughCoordiantes)
+        //console.log(boroughCoordiantes)
         newBorough(true)
         setMapCenter(boroughCoordiantes)
         break;
@@ -119,6 +141,9 @@ function App() {
         <Grid item>
           <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries}
             job_type={request.job_type} />
+        </Grid>
+        <Grid item>
+          <PieChart dataPoints={chartData} />
         </Grid>
       </Grid>
 

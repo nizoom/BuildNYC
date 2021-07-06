@@ -13,7 +13,6 @@ async function processRequest(job_type, year, borough) {
 
     //get year requested from front end 
 
-    //process year to UTC code 
 
     const formattedYears = formatYear(year)
 
@@ -30,13 +29,13 @@ async function processRequest(job_type, year, borough) {
 
     //AGGRAGATING GRAPH DATA
 
-    //const jobTypeTotals = await getJobTotals(formattedYears, formattedJobType, formattedBorough)
+    const permitTypeTotals = await getJobTotals(formattedYears, formattedBorough)
 
 
-
+    //console.log(jobTypeTotals)
     //console.log(formattedPermitData)
 
-    //return formattedPermitData
+    return [formattedPermitData, permitTypeTotals]
 
 
 }

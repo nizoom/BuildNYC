@@ -1,11 +1,6 @@
 async function getJobTotals(formattedYears, formattedBorough) {
 
-    console.log("getting jobs")
-
     //console.log(formattedYears, formattedJobType, formattedBorough)
-
-    // declaring variables for city wide job totals by type in a given year 
-
 
     require('dotenv').config()
 
@@ -14,11 +9,7 @@ async function getJobTotals(formattedYears, formattedBorough) {
     const apiKey = process.env.API_KEY_ID;
 
 
-
-
     //FUNCTION CALLS 
-
-    // declaring variables for city wide job totals by type in a given year 
 
 
     const [totalDMs, totalNBs, totalA1s] = await Promise.all([
@@ -27,12 +18,12 @@ async function getJobTotals(formattedYears, formattedBorough) {
         apiCall("A1", false, formattedYears)
     ]);
 
-    console.log("YO")
-    console.log(totalDMs[0].count_job_type) // drills down engough to get count
-    //RES.JSON INSTEAD??
-    const NYCWideTotals = [{ totalDMs: totalDMs[0].count_job_type },
-    { totalNBs: totalNBs[0].count_job_type },
-    { totalA1s: totalA1s[0].count_job_type }]
+    // console.log("YO")
+    // console.log(totalDMs.count_job_type) // drills down engough to get count from property
+
+    const NYCWideTotals = [{ totalDMs: totalDMs.count_job_type },
+    { totalNBs: totalNBs.count_job_type },
+    { totalA1s: totalA1s.count_job_type }]
 
     // declaring variables for borough specific job totals by type in a given year 
 
@@ -43,15 +34,9 @@ async function getJobTotals(formattedYears, formattedBorough) {
         apiCall("A1", formattedBorough, formattedYears)
     ]);
 
-    const givenBoroughTotals = [{ boroughSpecificDMs: boroughSpecificDMs },
-    { boroughSpecificNBs: boroughSpecificNBs }, { boroughSpecificA1s: boroughSpecificA1s }]
-
-    // const boroughSpecificDMs = await apiCall("DM", formattedBorough, formattedYears)
-
-    // const boroughSpecificNBs = await apiCall("NB", formattedBorough, formattedYears)
-
-    // const boroughSpecificA1s = await apiCall("A1", formattedBorough, formattedYears)
-
+    const givenBoroughTotals = [{ boroughSpecificDMs: boroughSpecificDMs.count_job_type },
+    { boroughSpecificNBs: boroughSpecificNBs.count_job_type },
+    { boroughSpecificA1s: boroughSpecificA1s.count_job_type }]
 
 
 
@@ -61,7 +46,6 @@ async function getJobTotals(formattedYears, formattedBorough) {
 
         const boroughOrCityWide = borough ? `borough=${borough}&` : ""
 
-        //console.log(boroughOrCityWide)
 
         const response = await fetch("https://data.cityofnewyork.us/resource/ipu4-2q9a.json?" +
             `job_type=${job_type}&` + //JOB TYPE 
@@ -81,17 +65,17 @@ async function getJobTotals(formattedYears, formattedBorough) {
             .catch(error => {
                 console.error('The error is:', error);
             });
-        console.log(response);
-        return response
+        // console.log(response);
+        return response[0]
     }
 
-    console.log(NYCWideTotals)
-    console.log(givenBoroughTotals)
-
+    // console.log(NYCWideTotals)
+    // console.log(givenBoroughTotals)
+    return [NYCWideTotals, givenBoroughTotals]
 }
 
 //getJobTotals(['1991-01-01T12:00:00', '1992-1990-01-01T12:00:00'], "DM", "BRONX")
 
-getJobTotals(['1991-01-01T12:00:00', '1992-1990-01-01T12:00:00'], "BRONX")
+//getJobTotals(['1991-01-01T12:00:00', '1992-1990-01-01T12:00:00'], "BRONX")
 
 module.exports = getJobTotals;

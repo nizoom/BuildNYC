@@ -37,7 +37,7 @@ async function getPermitData(formattedYears, formattedJobType, formattedBorough)
             console.error('Error:', error);
         });
 
-    console.log(response)
+    //console.log(response)
     return response
 }
 
