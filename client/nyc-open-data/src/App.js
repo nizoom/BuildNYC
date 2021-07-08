@@ -10,6 +10,7 @@ import { GetBoroughCoordinates } from './components/boroughmenu/getcoordinates';
 import formatChartData from './components/charts/formatchartdata';
 
 import CityPieChart from './components/charts/citypiechart';
+import BoroughPieChart from './components/charts/boroughpiechart';
 
 import '@fontsource/poppins';
 
@@ -32,6 +33,8 @@ function App() {
   const [entries, receivedEntries] = useState([])
 
   const [cityChartData, setCityChartData] = useState([])
+
+  const [boroughChartData, setBoroughChartData] = useState([])
 
   const [responseObj, setResponseObj] = useState({})
 
@@ -69,6 +72,7 @@ function App() {
       const [cityPieChartData, boroughPieChartData] = formatChartData(rawChartData)
 
       setCityChartData(cityPieChartData)
+      setBoroughChartData(boroughPieChartData)
       //setChartData(pieData);
 
     }
@@ -145,8 +149,10 @@ function App() {
           <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries}
             job_type={request.job_type} />
         </Grid>
-        <Grid item>
+        <Grid item style={{ display: "flex", justifyContent: "center" }}>
           <CityPieChart dataPoints={cityChartData} year={request.year} />
+          <BoroughPieChart dataPoints={boroughChartData}
+            year={request.year} borough={request.borough} />
         </Grid>
       </Grid>
 
