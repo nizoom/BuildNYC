@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2"
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Chart } from 'chart.js';
+
 import "./citypiechart.css"
 
 const CityPieChart = (props) => {
 
-    // Chart.plugins.register(ChartDataLabels);
+    //Chart.plugins.register(ChartDataLabels);
 
     const [nycData, setNYCData] = useState([])
 
@@ -31,54 +33,54 @@ const CityPieChart = (props) => {
         }
 
     }, [props.dataPoints])
+
+    const NYCWideLabels = ["Demolitions", "New Buildings", "Building Alterations"];
     return (
         <div className="cityWide_pie_hart" style={{ color: "white" }}>
             {props.dataPoints.length > 0 ?
-            <
+                <div>
+                    <h3 className="piechart_city_title">
+                        City Wide Development in {props.year}
+                    </h3>
+                    <Pie
+                        height={10}
+                        width={10}
+                        data={{
+                            labels: ["Demolitions", "New Buildings", "Building Alterations"],
+                            datasets: [{
+                                data: nycData,
+                                //data: processedCityData,
+                                backgroundColor: [
+                                    "#D93710", "#2F78CE", "#EB9B3B"
+                                ]
+                            }],
+                            labels: NYCWideLabels,
 
-                <Pie
-                    height={10}
-                    width={10}
-                    data={{
-                        labels: ["Demolitions", "New Buildings", "Building Alterations"],
-                        datasets: [{
-                            data: nycData,
-                            //data: processedCityData,
-                            backgroundColor: [
-                                "#D93710", "#2F78CE", "#EB9B3B"
-                            ]
-                        }]
-                    }}
-                    options={{
-                        maintainAspectRation: false,
-                        plugins: {
-                            datalabels: {
-                                formatter: function (value, context) {
-                                    return context.chart.data.labels[context.dataIndex];
+                        }}
+                        options={{
+                            maintainAspectRation: false,
+                            responsive: true,
+                            plugins: {
+
+                                datalabels: {
+                                    display: true,
+                                    color: 'white'
                                 },
-                                align: "top",
-                                anchor: "center",
-                                offset: 25,
-                                padding: -2,
-                                clip: true,
-                                font: {
-                                    size: "16",
-                                    weight: "bold"
-                                }
-                            },
-                            legend: {
-                                labels: {
-                                    data: ["Demolitions", "New Buildings", "Building Alterations"],
-                                    color: "white",
-                                    font: {
-                                        size: "20px"
+                                legend: {
+                                    labels: {
+                                        data: ["Demolitions", "New Buildings", "Building Alterations"],
+                                        color: "white",
+                                        font: {
+                                            size: "20px"
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    }
-                /> : null}
+                        }
+
+                    />  </div>
+                : null}
         </div>
     )
 }

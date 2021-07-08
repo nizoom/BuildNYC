@@ -4,4 +4,10 @@
     background-image: linear-gradient(to right,#7C65AF, #1B549D);
     border-radius: 16px;
     margin: 10px;
+    padding-bottom: 10px;
+}
+
+.piechart_city_title{
+    padding-top: 10px;
+
 }

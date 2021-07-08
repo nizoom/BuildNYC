@@ -142,7 +142,7 @@ function App() {
             job_type={request.job_type} />
         </Grid>
         <Grid item>
-          <CityPieChart dataPoints={chartData} />
+          <CityPieChart dataPoints={chartData} year={request.year} />
         </Grid>
       </Grid>
 
