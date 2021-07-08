@@ -7,6 +7,7 @@ import YearSlider from './components/yearslider/yearslider';
 import BoroughMenu from './components/boroughmenu/boroughmenu';
 import JobMenu from './components/jobmenu/jobmenu';
 import { GetBoroughCoordinates } from './components/boroughmenu/getcoordinates';
+import formatChartData from './components/charts/formatchartdata';
 
 import CityPieChart from './components/charts/citypiechart';
 
@@ -30,7 +31,7 @@ function App() {
 
   const [entries, receivedEntries] = useState([])
 
-  const [chartData, setChartData] = useState([])
+  const [cityChartData, setCityChartData] = useState([])
 
   const [responseObj, setResponseObj] = useState({})
 
@@ -64,8 +65,11 @@ function App() {
       const permitEntries = Object.values(responseObj)[0][0];
       receivedEntries(permitEntries)
 
-      const pieData = Object.values(responseObj)[0][1]
-      setChartData(pieData);
+      const rawChartData = Object.values(responseObj)[0][1]
+      const [cityPieChartData, boroughPieChartData] = formatChartData(rawChartData)
+
+      setCityChartData(cityPieChartData)
+      //setChartData(pieData);
 
     }
 
@@ -142,7 +146,7 @@ function App() {
             job_type={request.job_type} />
         </Grid>
         <Grid item>
-          <CityPieChart dataPoints={chartData} year={request.year} />
+          <CityPieChart dataPoints={cityChartData} year={request.year} />
         </Grid>
       </Grid>
 

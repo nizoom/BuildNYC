@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Pie } from "react-chartjs-2"
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Chart } from 'chart.js';
@@ -7,32 +7,20 @@ import "./citypiechart.css"
 
 const CityPieChart = (props) => {
 
-    //Chart.plugins.register(ChartDataLabels);
+    function getTotal(arr) {
+        let total = arr.reduce((a, b) => a + b, 0)
 
-    const [nycData, setNYCData] = useState([])
-
-    const [boroughData, setBoroughData] = useState([])
-
-    function processDataForChart(data) {
-        const arrOfData = data.map(data => {
-            //console.log("Here is the value")
-            const parsedNum = parseInt(Object.values(data), 10)
-            //console.log(parsedNum)
-            return parsedNum
-        })
-        return arrOfData
-    }
-
-    useEffect(() => {
-        if (props.dataPoints.length > 0) {
-            //console.log(props.dataPoints[0])
-            const processedCityData = processDataForChart(props.dataPoints[0])
-            console.log(processedCityData)
-            setNYCData(processedCityData)
-            setBoroughData(props.dataPoints[1])
+        total = total.toString().split('.');
+        if (total[0].length >= 5) {
+            total[0] = total[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        }
+        if (total[1] && total[1].length >= 5) {
+            total[1] = total[1].replace(/(\d{3})/g, '$1 ');
         }
 
-    }, [props.dataPoints])
+        return total.join('.');
+    }
+
 
     const NYCWideLabels = ["Demolitions", "New Buildings", "Building Alterations"];
     return (
@@ -42,13 +30,14 @@ const CityPieChart = (props) => {
                     <h3 className="piechart_city_title">
                         City Wide Development in {props.year}
                     </h3>
+                    <h4>  Construction permits for the year: {getTotal(props.dataPoints)} </h4>
                     <Pie
                         height={10}
                         width={10}
                         data={{
                             labels: ["Demolitions", "New Buildings", "Building Alterations"],
                             datasets: [{
-                                data: nycData,
+                                data: props.dataPoints,
                                 //data: processedCityData,
                                 backgroundColor: [
                                     "#D93710", "#2F78CE", "#EB9B3B"
