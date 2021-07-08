@@ -1,0 +1,7 @@
+.cityWide_pie_hart{
+    width: 35%;
+    height: 35%;
+    background-image: linear-gradient(to right,#7C65AF, #1B549D);
+    border-radius: 16px;
+    margin: 10px;
+}

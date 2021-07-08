@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography'
 import Intro from "./components/intro/intro"
 import MyMap from './components/map/map';
 import YearSlider from './components/yearslider/yearslider';
@@ -9,7 +8,7 @@ import BoroughMenu from './components/boroughmenu/boroughmenu';
 import JobMenu from './components/jobmenu/jobmenu';
 import { GetBoroughCoordinates } from './components/boroughmenu/getcoordinates';
 
-import PieChart from './components/charts/chart';
+import CityPieChart from './components/charts/citypiechart';
 
 import '@fontsource/poppins';
 
@@ -143,7 +142,7 @@ function App() {
             job_type={request.job_type} />
         </Grid>
         <Grid item>
-          <PieChart dataPoints={chartData} />
+          <CityPieChart dataPoints={chartData} />
         </Grid>
       </Grid>
 
