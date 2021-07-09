@@ -8,10 +8,6 @@ function formatYear(year) {
 
     const formattedNextYear = `${nextYear}-01-01T12:00:00`;
 
-    //console.log(formattedYear + " and " + formattedNextYear)
-
-    //console.log([formattedYear, formattedNextYear])
-
     return [formattedYear, formattedNextYear]
 }
 
