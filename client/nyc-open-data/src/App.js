@@ -38,6 +38,8 @@ function App() {
 
   const [responseObj, setResponseObj] = useState({})
 
+  const [allTimehData, setAllTimeGraphData] = useState([])
+
   async function callAPI() {
     console.log("API function called")
     //console.log(request.borough)
@@ -52,7 +54,7 @@ function App() {
       //.then((data) => setResponseObject(data))
       //.then((data) => console.log("data in app.js " + data))
       .catch((err) => console.log(err))
-    console.log(response)
+    //console.log(response)
     setResponseObj(response);
     // receivedEntries(response[0])
     // setChartData(response[1])
@@ -63,17 +65,24 @@ function App() {
 
 
   useEffect(() => { // store data in hooks 
-    console.log(responseObj)
+    //console.log(responseObj)
     if (responseObj.hasOwnProperty("allData")) {
+      //
       const permitEntries = Object.values(responseObj)[0][0];
       receivedEntries(permitEntries)
 
       const rawChartData = Object.values(responseObj)[0][1]
-      const [cityPieChartData, boroughPieChartData] = formatChartData(rawChartData)
+      const rawLineGraphData = Object.values(responseObj)[0][2]
+
+      const [cityPieChartData, boroughPieChartData, processedLineGraphData
+      ] = formatChartData(rawChartData, rawLineGraphData)
+
+
 
       setCityChartData(cityPieChartData)
       setBoroughChartData(boroughPieChartData)
-      //setChartData(pieData);
+      setAllTimeGraphData(processedLineGraphData)
+
       //PAN DOWN
     }
 
@@ -126,7 +135,6 @@ function App() {
 
 
   console.log(request)
-  //console.log("Map Center: " + mapCenter)
 
   return (
     <div className="App">

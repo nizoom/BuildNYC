@@ -45,9 +45,11 @@ async function getAllTimeTotals() {
             if (el != undefined) { // MAY HAVE TO DEAL WITH COUNTS THAT ARE UNDEFINED? 
                 el.year = years[index]
                 countObjWithYears.push(el)
+            } else {
+                console.log(el)
             }
         })
-
+        console.log(countObjWithYears.length)
         return countObjWithYears
 
         //console.log(countObjWithYears);

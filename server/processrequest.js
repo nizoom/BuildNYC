@@ -37,7 +37,7 @@ async function processRequest(job_type, year, borough) {
 
 
     //console.log(jobTypeTotals)
-    console.log(allTimeTotals)
+    //console.log(allTimeTotals)
 
     return [formattedPermitData, permitTypeTotals, allTimeTotals]
 
