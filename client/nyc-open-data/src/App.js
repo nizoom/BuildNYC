@@ -63,7 +63,7 @@ function App() {
 
 
   useEffect(() => { // store data in hooks 
-    // console.log(responseObj)
+    console.log(responseObj)
     if (responseObj.hasOwnProperty("allData")) {
       const permitEntries = Object.values(responseObj)[0][0];
       receivedEntries(permitEntries)

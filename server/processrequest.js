@@ -8,6 +8,8 @@ const formatPermitData = require('./processrequestminifuncs/formatpermitdata')
 
 const getJobTotals = require('./dataforchartfuncs/jobtotals')
 
+const getAllTimeTotals = require('./dataforchartfuncs/alltimetotals')
+
 
 async function processRequest(job_type, year, borough) {
 
@@ -31,11 +33,13 @@ async function processRequest(job_type, year, borough) {
 
     const permitTypeTotals = await getJobTotals(formattedYears, formattedBorough)
 
+    const allTimeTotals = await getAllTimeTotals()
+
 
     //console.log(jobTypeTotals)
-    //console.log(formattedPermitData)
+    console.log(allTimeTotals)
 
-    return [formattedPermitData, permitTypeTotals]
+    return [formattedPermitData, permitTypeTotals, allTimeTotals]
 
 
 }

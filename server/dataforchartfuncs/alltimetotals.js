@@ -1,3 +1,4 @@
+//THIS AGGREGATES DATA FOR LINE GRAPH 
 async function getAllTimeTotals() {
     require('dotenv').config()
 
@@ -12,9 +13,12 @@ async function getAllTimeTotals() {
     //console.log(currentYear);
 
     //for every job type get 30 totals one for each year
-    const NewBuildingCount = buildArray("NB")
-    const DemolitionCount = buildArray("DM")
-    const BuildingAlteration = buildArray("A1")
+    const [newBuildingCount, demolitionCount, buildingAlterationCount] = await Promise.all([
+        buildArray("NB"),
+        buildArray("DM"),
+        buildArray("A1")
+    ])
+
 
     async function buildArray(jobType) {
 
@@ -38,11 +42,15 @@ async function getAllTimeTotals() {
         const countObjWithYears = []
 
         countObj.forEach(function (el, index) {
-            el.year = years[index]
-            countObjWithYears.push(el)
+            if (el != undefined) { // MAY HAVE TO DEAL WITH COUNTS THAT ARE UNDEFINED? 
+                el.year = years[index]
+                countObjWithYears.push(el)
+            }
         })
 
-        console.log(countObjWithYears);
+        return countObjWithYears
+
+        //console.log(countObjWithYears);
 
         async function getTotal(jobType, year) {
             //console.log(year)
@@ -72,8 +80,8 @@ async function getAllTimeTotals() {
             //${year}-01-01T12:00:00
         }
     }
-
-    return [NewBuildingCount, DemolitionCount, BuildingAlteration]
+    //console.log([newBuildingCount, demolitionCount, buildingAlterationCount])
+    return [newBuildingCount, demolitionCount, buildingAlterationCount]
 }
 
 //getAllTimeTotals();

@@ -1,3 +1,4 @@
+//THIS AGGREGATES DATA FOR PIE CHARTS 
 async function getJobTotals(formattedYears, formattedBorough) {
 
     //console.log(formattedYears, formattedJobType, formattedBorough)
