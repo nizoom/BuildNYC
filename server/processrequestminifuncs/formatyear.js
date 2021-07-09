@@ -6,7 +6,7 @@ function formatYear(year) {
 
     const formattedYear = `${year}-01-01T12:00:00`;
 
-    const formattedNextYear = `${nextYear}-1990-01-01T12:00:00`;
+    const formattedNextYear = `${nextYear}-01-01T12:00:00`;
 
     //console.log(formattedYear + " and " + formattedNextYear)
 

@@ -74,7 +74,7 @@ function App() {
       setCityChartData(cityPieChartData)
       setBoroughChartData(boroughPieChartData)
       //setChartData(pieData);
-
+      //PAN DOWN
     }
 
   }, [responseObj])

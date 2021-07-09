@@ -44,6 +44,8 @@ async function getJobTotals(formattedYears, formattedBorough) {
 
         //determine if call is borough specific or city wide based on arguements above
 
+        console.log(formattedYears)
+
         const boroughOrCityWide = borough ? `borough=${borough}&` : ""
 
 

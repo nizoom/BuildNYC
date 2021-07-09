@@ -29,7 +29,7 @@ const JobMenu = (props) => {
             <FormControl className={classes.formControl}>
                 <Select value={jobType} displayEmpty onChange={handleJobChange}
                     style={{ color: "white", fontWeight: "bold" }}>
-                    <MenuItem value="" disabled> Permit Type </MenuItem>
+                    <MenuItem value="" disabled> Construction Type </MenuItem>
                     <MenuItem value="Demolition"> Demolition </MenuItem>
                     <MenuItem value="New Building"> New Building </MenuItem>
                     <MenuItem value="Building Alteration"> Building Alteration </MenuItem>
