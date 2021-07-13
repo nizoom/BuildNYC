@@ -11,6 +11,7 @@ import formatChartData from './components/charts/formatchartdata';
 
 import CityPieChart from './components/charts/citypiechart';
 import BoroughPieChart from './components/charts/boroughpiechart';
+import LineChart from './components/charts/linechart';
 
 import '@fontsource/poppins';
 
@@ -161,6 +162,10 @@ function App() {
           <CityPieChart dataPoints={cityChartData} year={request.year} />
           <BoroughPieChart dataPoints={boroughChartData}
             year={request.year} borough={request.borough} />
+
+        </Grid>
+        <Grid item>
+          {allTimehData.length > 0 ? <LineChart dataPoints={allTimehData} /> : null}
         </Grid>
       </Grid>
 
