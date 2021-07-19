@@ -1,3 +1,8 @@
 .lineGraph_wrapper{
-    background-color: teal;
+    background-color: #CEDBE6;
+    width: 60%;
+    border-radius: 16px;
+    margin: auto;
+    border-color: linear-gradient(to right,#7C65AF, #1B549D);;
 }
+
