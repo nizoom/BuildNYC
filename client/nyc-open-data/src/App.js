@@ -12,6 +12,7 @@ import formatChartData from './components/charts/formatchartdata';
 import CityPieChart from './components/charts/citypiechart';
 import BoroughPieChart from './components/charts/boroughpiechart';
 import LineChart from './components/charts/linechart';
+import Loader from './components/loader/loader.';
 
 import '@fontsource/poppins';
 
@@ -41,7 +42,10 @@ function App() {
 
   const [allTimehData, setAllTimeGraphData] = useState([])
 
+  const [loader, setLoader] = useState(false)
+
   async function callAPI() {
+
     console.log("API function called")
     //console.log(request.borough)
     //console.log("request at API time " + request.borough)
@@ -56,9 +60,9 @@ function App() {
       //.then((data) => console.log("data in app.js " + data))
       .catch((err) => console.log(err))
     //console.log(response)
+
     setResponseObj(response);
-    // receivedEntries(response[0])
-    // setChartData(response[1])
+    setLoader(true);
     return response;
 
 
@@ -83,6 +87,7 @@ function App() {
       setCityChartData(cityPieChartData)
       setBoroughChartData(boroughPieChartData)
       setAllTimeGraphData(processedLineGraphData)
+      setLoader(false)
 
       //PAN DOWN
     }
@@ -140,34 +145,42 @@ function App() {
   return (
     <div className="App">
       <Intro />
+      {!loader ?
+        <Grid container direction="column">
 
-      <Grid container direction="column">
+          <Grid item >
+            <div className="UI_Container">
+              <BoroughMenu passBoroughToParent={changeFromUser} />
+              <JobMenu passJobTypeToParent={changeFromUser} />
+              <YearSlider passYearToParent={changeFromUser} />
 
-        <Grid item >
-          <div className="UI_Container">
-            <BoroughMenu passBoroughToParent={changeFromUser} />
-            <JobMenu passJobTypeToParent={changeFromUser} />
-            <YearSlider passYearToParent={changeFromUser} />
+            </div>
 
-          </div>
+          </Grid>
 
+
+          <Grid item>
+            <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries}
+              job_type={request.job_type} />
+          </Grid>
+          <Grid item style={{ display: "flex", justifyContent: "center" }}>
+            <CityPieChart dataPoints={cityChartData} year={request.year} />
+            <BoroughPieChart dataPoints={boroughChartData}
+              year={request.year} borough={request.borough} />
+
+          </Grid>
+          <Grid item>
+            {allTimehData.length > 0 ? <LineChart dataPoints={allTimehData} /> : null}
+          </Grid>
         </Grid>
+        :
+        <Loader />
 
 
-        <Grid item>
-          <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries}
-            job_type={request.job_type} />
-        </Grid>
-        <Grid item style={{ display: "flex", justifyContent: "center" }}>
-          <CityPieChart dataPoints={cityChartData} year={request.year} />
-          <BoroughPieChart dataPoints={boroughChartData}
-            year={request.year} borough={request.borough} />
 
-        </Grid>
-        <Grid item>
-          {allTimehData.length > 0 ? <LineChart dataPoints={allTimehData} /> : null}
-        </Grid>
-      </Grid>
+
+
+      }
 
     </div>
   );

@@ -1,0 +1,16 @@
+svg * { transform-origin: 50% }
+
+@keyframes left {
+  100% { transform: rotate(-360deg) }
+}
+
+@keyframes right {
+  100% { transform: rotate(360deg) }
+}
+
+.goo_wrapper{
+    background-image: linear-gradient(to right,#DA6BCB, #1B549D);
+    width: 20%;
+    border-radius: 16px;
+    margin: auto;
+}
