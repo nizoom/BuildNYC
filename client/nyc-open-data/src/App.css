@@ -8,6 +8,17 @@
   display: flex;
  justify-content: space-around;
  margin-top: 5em;
+ background-color: #424C4D;
+ padding: 50px, 0, 5%, 0; 
+ border-radius: 16px;
+ margin-right: auto;
+ margin-left: auto;
+ width: 90%;
+}
+
+.UI_Container > div{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 
