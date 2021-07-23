@@ -21,7 +21,7 @@ const BoroughPieChart = (props) => {
 
     const boroughLabels = ["Demolitions", "New Buildings", "Building Alterations"];
     return (
-        <div className="cityWide_pie_hart" style={{ color: "white" }}>
+        <div className="cityWide_pie_chart" style={{ color: "white" }}>
             {props.dataPoints.length > 0 ?
                 <div>
                     <h3 className="piechart_city_title">

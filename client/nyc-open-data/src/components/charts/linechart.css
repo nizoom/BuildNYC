@@ -3,6 +3,16 @@
     width: 60%;
     border-radius: 16px;
     margin: auto;
-    border-color: linear-gradient(to right,#7C65AF, #1B549D);;
+    border-color: blueviolet;
+    overflow: auto;
+    /* border-color: linear-gradient(to right,#7C65AF, #1B549D); */
+    padding: 30px;
 }
 
+.outter_linegraph_wrapper{
+    border-color: linear-gradient(to right,#7C65AF, #1B549D);
+    border-width: 50px;
+    background-color: linear-gradient(to right,#7C65AF, #1B549D);
+
+   
+}

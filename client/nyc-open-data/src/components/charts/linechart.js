@@ -35,7 +35,9 @@ const LineChart = (props) => {
         <div className="outter_linegraph_wrapper">
 
             <div className="lineGraph_wrapper">
-
+                <h3 className="linechart_title">
+                    City Wide Construction Data since 1990
+                </h3>
                 <Line
                     height={5}
                     width={5}
@@ -100,42 +102,3 @@ const LineChart = (props) => {
 }
 
 export default LineChart;
-
-
-  // const datasets = [
-    //     {
-    //         //     labels: ['January', 'February', 'March',
-    //         //    'April', 'May'],
-    //         labels: yearLabels,
-    //         label: "Constructions Permits City Wide",
-    //         fill: "false",
-    //         lineTension: 0.5,
-    //         backgroundColor: 'rgba(75,192,192,1)',
-    //         borderColor: 'rgba(0,0,0,1)',
-    //         borderWidth: 2,
-    //         data: [65, 59, 80, 81, 56]
-    //     }
-    // ]
-
-
-
-
-
-
-
- // const data = {
-    //     labels: [1, 2, 4, 5, 6],//yearLabels,
-    //     dataSets: [
-    //         {//NEW BUILDINGS
-    //             label: "New Buildings",
-    //             data: [1, 2, 4, 5, 6]// NBcounts.map(el => el.count)
-    //         },
-    //         {//DEMOS
-    //             label: "Demolitions"
-
-    //         },
-    //         {//ALTERATIONS
-    //             label: "Alterations"
-    //         }
-    //     ]
-    // }
