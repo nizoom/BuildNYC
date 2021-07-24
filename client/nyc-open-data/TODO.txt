@@ -4,3 +4,6 @@
 4. media queries for app 
 5. make UI into one box √
 6. home btn 
+7. map should have border (dark)
+8. not ready yet message
+9. submit btn? 

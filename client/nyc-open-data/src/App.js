@@ -45,6 +45,7 @@ function App() {
   const [loader, setLoader] = useState(false)
 
   async function callAPI() {
+    setLoader(true)
 
     console.log("API function called")
     //console.log(request.borough)
@@ -62,7 +63,7 @@ function App() {
     //console.log(response)
 
     setResponseObj(response);
-    setLoader(true);
+    setLoader(false)
     return response;
 
 
@@ -73,6 +74,8 @@ function App() {
     //console.log(responseObj)
     if (responseObj.hasOwnProperty("allData")) {
       //
+
+
       const permitEntries = Object.values(responseObj)[0][0];
       receivedEntries(permitEntries)
 
@@ -87,10 +90,12 @@ function App() {
       setCityChartData(cityPieChartData)
       setBoroughChartData(boroughPieChartData)
       setAllTimeGraphData(processedLineGraphData)
-      setLoader(false)
+
 
       //PAN DOWN
     }
+
+
 
   }, [responseObj])
 
@@ -132,6 +137,7 @@ function App() {
   useEffect(() => {
     if (request.borough !== "" && request.job_type !== "") {
       callAPI();
+
     } else {
       console.log("a field is empty")
     }; // This is be executed when `loading` state changes
@@ -145,42 +151,42 @@ function App() {
   return (
     <div className="App">
       <Intro />
-      {!loader ?
-        <Grid container direction="column">
 
-          <Grid item >
-            <div className="UI_Container">
-              <BoroughMenu passBoroughToParent={changeFromUser} />
-              <JobMenu passJobTypeToParent={changeFromUser} />
-              <YearSlider passYearToParent={changeFromUser} />
+      {loader ? <Loader /> : null}
+      <Grid container direction="column" className={loader ? "disappear" : "reappear"}>
 
-            </div>
+        <Grid item >
+          <div className="UI_Container">
+            <BoroughMenu passBoroughToParent={changeFromUser} />
+            <JobMenu passJobTypeToParent={changeFromUser} />
+            <YearSlider passYearToParent={changeFromUser} />
 
-          </Grid>
+          </div>
 
-
-          <Grid item>
-            <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries}
-              job_type={request.job_type} />
-          </Grid>
-          <Grid item style={{ display: "flex", justifyContent: "center" }}>
-            <CityPieChart dataPoints={cityChartData} year={request.year} />
-            <BoroughPieChart dataPoints={boroughChartData}
-              year={request.year} borough={request.borough} />
-
-          </Grid>
-          <Grid item>
-            {allTimehData.length > 0 ? <LineChart dataPoints={allTimehData} /> : null}
-          </Grid>
         </Grid>
-        :
-        <Loader />
+
+
+        <Grid item>
+          <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries}
+            job_type={request.job_type} />
+        </Grid>
+        <Grid item style={{ display: "flex", justifyContent: "center" }}>
+          <CityPieChart dataPoints={cityChartData} year={request.year} />
+          <BoroughPieChart dataPoints={boroughChartData}
+            year={request.year} borough={request.borough} />
+
+        </Grid>
+        <Grid item>
+          {allTimehData.length > 0 ? <LineChart dataPoints={allTimehData} /> : null}
+        </Grid>
+      </Grid>
 
 
 
 
 
-      }
+
+
 
     </div>
   );

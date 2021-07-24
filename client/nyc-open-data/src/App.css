@@ -4,6 +4,20 @@
   background-size: cover;
 }
 
+.disappear{
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;;
+}
+
+.reappear{
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;;
+}
+
 .UI_Container{
   display: flex;
  justify-content: space-around;
