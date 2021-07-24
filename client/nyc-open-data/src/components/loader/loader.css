@@ -9,8 +9,12 @@ svg * { transform-origin: 50% }
 }
 
 .goo_wrapper{
+    position: relative;
+    top: 200px;
     background-image: linear-gradient(to right,#DA6BCB, #1B549D);
     width: 20%;
-    border-radius: 16px;
     margin: auto;
+    border-radius: 16px;
+ 
+
 }
