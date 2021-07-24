@@ -3,9 +3,12 @@ import React, { useState, useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import Intro from "./components/intro/intro"
 import MyMap from './components/map/map';
+
 import YearSlider from './components/yearslider/yearslider';
 import BoroughMenu from './components/boroughmenu/boroughmenu';
 import JobMenu from './components/jobmenu/jobmenu';
+import SubmitBtn from './components/submit/submit';
+
 import { GetBoroughCoordinates } from './components/boroughmenu/getcoordinates';
 import formatChartData from './components/charts/formatchartdata';
 
@@ -160,6 +163,7 @@ function App() {
             <BoroughMenu passBoroughToParent={changeFromUser} />
             <JobMenu passJobTypeToParent={changeFromUser} />
             <YearSlider passYearToParent={changeFromUser} />
+            <SubmitBtn />
 
           </div>
 

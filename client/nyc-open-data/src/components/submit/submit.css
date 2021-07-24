@@ -1,0 +1,29 @@
+.submit_btn_wrapper{
+    position: relative;
+    background-image: linear-gradient(to right,#7C65AF, #1B549D);
+    border-radius: 16px;
+    padding: 1em;
+ 
+}
+
+.submit_btn{
+    margin-top: 8%;
+    padding: 15px 25px;
+    font-size: 15px;
+    background-color: #424C4D;
+    border-radius: 16px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 5px #999;
+    border: none;
+}
+
+.submit_btn:hover {
+    background-color: #0D7689;
+    animation: 'right 4s linear infinite'
+}
+.submit_btn:active {
+    background-color: #0D7689;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
