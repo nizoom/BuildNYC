@@ -4,7 +4,8 @@
     height: 80vh;
     margin-left: auto;
     margin-right: auto;
-
+    border: solid #424C4D 10px;
+    border-radius: 16px;
 }
 
 .popup p {
