@@ -45,7 +45,9 @@ function App() {
 
   const [allTimehData, setAllTimeGraphData] = useState([])
 
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
+
+  const [submitted, setSubmitted] = useState(false);
 
   async function callAPI() {
     setLoader(true)
@@ -102,11 +104,23 @@ function App() {
 
   }, [responseObj])
 
+  function validRequest() {
+    callAPI()
+    setSubmitted(true)
+  }
+
 
   const changeFromUser = (component, updatedItem) => {
 
     console.log(component, updatedItem);
 
+    //either  markers don't change until submitted 
+
+    //or upon one change the map is cleared 
+
+    receivedEntries([]);
+
+    // if (submitted) {
     switch (component) {
       case "borough":
         setRequest({
@@ -132,19 +146,22 @@ function App() {
         })
         break;
     }
+    //}
+
+
     //console.log(request)
 
 
   }
 
-  useEffect(() => {
-    if (request.borough !== "" && request.job_type !== "") {
-      callAPI();
+  // useEffect(() => {
+  //   if (request.borough !== "" && request.job_type !== "") {
+  //     callAPI();
 
-    } else {
-      console.log("a field is empty")
-    }; // This is be executed when `loading` state changes
-  }, [request])
+  //   } else {
+  //     console.log("a field is empty")
+  //   }; // This is be executed when `loading` state changes
+  // }, [request])
 
 
 
@@ -163,7 +180,7 @@ function App() {
             <BoroughMenu passBoroughToParent={changeFromUser} />
             <JobMenu passJobTypeToParent={changeFromUser} />
             <YearSlider passYearToParent={changeFromUser} />
-            <SubmitBtn />
+            <SubmitBtn allUserInputs={request} startRequest={validRequest} />
 
           </div>
 

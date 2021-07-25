@@ -4,7 +4,7 @@ import "./linechart.css"
 
 const LineChart = (props) => {
 
-    console.log(props.dataPoints)
+    // console.log(props.dataPoints)
 
     const [NBobj, DMobj, A1obj] = props.dataPoints;
 
@@ -28,9 +28,9 @@ const LineChart = (props) => {
         return el.count
     })
 
-    console.log(DMcount);
+    // console.log(DMcount);
 
-    console.log(NBcount);
+    // console.log(NBcount);
     return (
         <div className="outter_linegraph_wrapper">
 

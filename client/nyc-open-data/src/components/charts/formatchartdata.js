@@ -8,7 +8,7 @@ export default function formatChartData(pieData, lineData) {
 
         const [yearlyNewBuildingCounts, yearlyDemolitionCounts, yearlyAlterationCounts] = lineData;
 
-        console.log(yearlyNewBuildingCounts)
+        //console.log(yearlyNewBuildingCounts)
 
         //REFACTOR 
 
@@ -40,7 +40,7 @@ export default function formatChartData(pieData, lineData) {
                 return parsedNum
             }
         })
-        console.log(arrOfData)
+        //console.log(arrOfData)
         return arrOfData
     }
 }
