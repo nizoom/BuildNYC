@@ -17,6 +17,8 @@ import BoroughPieChart from './components/charts/boroughpiechart';
 import LineChart from './components/charts/linechart';
 import Loader from './components/loader/loader.';
 
+import HomeBtn from './components/homebtn/homebtn';
+
 import '@fontsource/poppins';
 
 function App() {
@@ -170,6 +172,7 @@ function App() {
 
   return (
     <div className="App">
+      <HomeBtn />
       <Intro />
 
       {loader ? <Loader /> : null}
