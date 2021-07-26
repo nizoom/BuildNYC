@@ -30,7 +30,7 @@ const CityPieChart = (props) => {
                     <h3 className="piechart_city_title">
                         City Wide Development in {props.year}
                     </h3>
-                    <h4>  Construction permits for the year: {getTotal(props.dataPoints)} </h4>
+                    <h4>  All construction permits for the year: {getTotal(props.dataPoints)} </h4>
                     <Pie
                         height={10}
                         width={10}

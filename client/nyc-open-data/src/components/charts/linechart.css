@@ -1,12 +1,14 @@
 .lineGraph_wrapper{
-    background-color: #CEDBE6;
+    color: white;
+    background-color: #130723;
     width: 60%;
     border-radius: 16px;
     margin: auto;
     border-color: blueviolet;
     overflow: auto;
     /* border-color: linear-gradient(to right,#7C65AF, #1B549D); */
-    padding: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .outter_linegraph_wrapper{

@@ -31,6 +31,7 @@ const LineChart = (props) => {
     // console.log(DMcount);
 
     // console.log(NBcount);
+
     return (
         <div className="outter_linegraph_wrapper">
 
@@ -73,6 +74,7 @@ const LineChart = (props) => {
                                 backgroundColor: [
                                     "orange"
                                 ],
+                                borderColor: "#D5951F",
                                 tension: 0.2
                             }
 
@@ -86,13 +88,25 @@ const LineChart = (props) => {
                             legend: {
                                 labels: {
                                     data: ["Demolitions", "New Buildings", "Building Alterations"],
-                                    color: "black",
+                                    color: "white",
                                     font: {
                                         size: "20px"
                                     }
                                 }
                             }
-                        }
+                        },
+                        scales: {
+                            y: {
+                                ticks: {
+                                    color: 'white'
+                                },
+                            },
+                            x: {
+                                ticks: {
+                                    color: 'white'
+                                },
+                            },
+                        },
                     }}
                 />
             </div>
