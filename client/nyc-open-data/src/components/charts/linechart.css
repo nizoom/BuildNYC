@@ -1,14 +1,17 @@
 .lineGraph_wrapper{
     color: white;
     background-color: #130723;
-    width: 60%;
+    width: 70%;
     border-radius: 16px;
     margin: auto;
-    border-color: blueviolet;
+    /* border-color: blueviolet; */
     overflow: auto;
     /* border-color: linear-gradient(to right,#7C65AF, #1B549D); */
+    background-clip: content-box, padding-box;
     padding: 20px;
     margin-bottom: 20px;
+    background-image: linear-gradient(#130723, #130723), 
+    linear-gradient(to right,#1C3E79, #130723);
 }
 
 .outter_linegraph_wrapper{
@@ -16,5 +19,16 @@
     border-width: 50px;
     background-color: linear-gradient(to right,#7C65AF, #1B549D);
 
-   
+
+}
+
+.linechart_title{
+    background-image: linear-gradient(to right,#1B549D, #130723);
+    /* background-color: #424C4D; */
+    padding: 10px;
+    border-bottom-right-radius:16px;
+    border-bottom-left-radius:16px;
+    width: 65%;
+    margin: auto;
+    margin-bottom: 15px;
 }
