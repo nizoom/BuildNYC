@@ -27,3 +27,25 @@
     box-shadow: 0 4px #666;
     transform: translateY(4px);
   }
+
+.swal-modal {
+    background-color: #1F2425;
+    border: 6px solid #424C4D;
+    opacity: 1;
+    color: white;
+  }
+
+.swal-text{
+    text-align: center;
+    color: white;
+    font-size: large;
+}
+
+.swal-title{
+    color: white;
+}
+
+.swal-overlay {
+    background-color: #724B85;
+  
+  }
