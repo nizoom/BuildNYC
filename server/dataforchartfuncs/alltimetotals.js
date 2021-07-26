@@ -30,7 +30,8 @@ async function getAllTimeTotals() {
         }
 
 
-        //map is not ever an async function so you have to wrap it in Promise.all
+        //node rate limiter goes here potentially 
+        //map is not ever an async function so you have to wrap it in Promise.all 
         const countObj = await Promise.all(years.map(async year => {
             const yearWithTotal = await getTotal(jobType, year)
             //console.log(yearWithTotal[0])
@@ -42,11 +43,13 @@ async function getAllTimeTotals() {
         const countObjWithYears = []
 
         countObj.forEach(function (el, index) {
+            //console.log(el)
+            //some years are undefined? 
             if (el != undefined) { // MAY HAVE TO DEAL WITH COUNTS THAT ARE UNDEFINED? 
                 el.year = years[index]
                 countObjWithYears.push(el)
             } else {
-                console.log(el)
+                //console.log(el)
             }
         })
         console.log(countObjWithYears.length)
@@ -71,7 +74,7 @@ async function getAllTimeTotals() {
                         "app_token": apiKey
                     }
                 }).then(response => response.json())
-
+                //.then(data => console.log(data))
                 .catch(err => console.log(err))
 
 
@@ -86,6 +89,11 @@ async function getAllTimeTotals() {
     return [newBuildingCount, demolitionCount, buildingAlterationCount]
 }
 
-//getAllTimeTotals();
+getAllTimeTotals();
 
 module.exports = getAllTimeTotals;
+
+
+// message: 'Too many requests',
+// errorCode: 'too-many-requests',
+// data: {}
