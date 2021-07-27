@@ -169,11 +169,15 @@ function App() {
 
         <Grid item >
           <div className="UI_Container">
-            <BoroughMenu passBoroughToParent={changeFromUser} />
-            <JobMenu passJobTypeToParent={changeFromUser} />
-            <YearSlider passYearToParent={changeFromUser} />
-            <SubmitBtn allUserInputs={request} startRequest={validRequest} />
+            <div className="UI_subcontainer">
+              <YearSlider passYearToParent={changeFromUser} />
+              <div className="small_pair">
+                <BoroughMenu passBoroughToParent={changeFromUser} />
+                <JobMenu passJobTypeToParent={changeFromUser} />
+              </div>
 
+              <SubmitBtn allUserInputs={request} startRequest={validRequest} />
+            </div>
           </div>
 
         </Grid>

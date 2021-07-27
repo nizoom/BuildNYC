@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Pie } from "react-chartjs-2"
 
 
@@ -23,28 +23,9 @@ const CityPieChart = (props) => {
 
     const NYCWideLabels = ["Demolitions", "New Buildings", "Building Alterations"];
 
-    const contentDisplay = useRef();
-
-
-
-    // const scrollIntoView = () => {
-    //     contentDisplay.current.scrollIntoView({
-    //         behavior: "smooth",
-    //         block: "nearest",
-    //         inline: "end"
-    //     })
-    // }
-
-
-
-    // useEffect(() => {
-    //     if (props.scroll) {
-    //         scrollIntoView()
-    //     }
-    // }, [props.scroll]);
 
     return (
-        <div className="cityWide_pie_chart" style={{ color: "white" }} ref={contentDisplay}>
+        <div className="cityWide_pie_chart" style={{ color: "white" }}>
             {props.dataPoints.length > 0 ?
                 <div>
                     <h3 className="piechart_city_title">

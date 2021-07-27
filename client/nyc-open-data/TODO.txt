@@ -8,5 +8,10 @@
 8. not ready yet message √
 9. submit btn √
 10. clear all pins when there is a change to userProps √
-11. shrink pie sharts a bit 
-12. pan down
+11. shrink pie sharts a bit √
+12. pan down √
+
+______________
+MEDIA QUERIES 
+
+1. UI 
