@@ -1,6 +1,6 @@
 1. add loader √
-2. fix inconsistent data from line chart 
-3. add background to line chart 
+2. fix inconsistent data from line chart √
+3. add background to line chart √
 4. media queries for app 
 5. make UI into one box √
 6. home btn - onclick css needed
@@ -8,4 +8,5 @@
 8. not ready yet message √
 9. submit btn √
 10. clear all pins when there is a change to userProps √
-11. email socrata
+11. shrink pie sharts a bit 
+12. pan down

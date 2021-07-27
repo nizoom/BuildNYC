@@ -5,6 +5,7 @@
 
 .title_div{
     padding-top: 30px;
+    padding-bottom: 10px;
     background-image: linear-gradient(to right,#7C65AF, #1B549D);
     width: 80%;
     margin: auto;

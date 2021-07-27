@@ -1,10 +1,10 @@
 .cityWide_pie_chart{
-    width: 33%;
-    height: 35%;
+    width: 27%;
+    height: 30%;
     background-image: linear-gradient(to right,#7C65AF, #1B549D);
     border-radius: 16px;
     margin: 10px;
-    padding-bottom: 10px;
+    padding: 20px;
 }
 
 .piechart_city_title{
