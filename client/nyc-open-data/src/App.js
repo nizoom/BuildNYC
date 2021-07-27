@@ -18,6 +18,7 @@ import LineChart from './components/charts/linechart';
 import Loader from './components/loader/loader.';
 
 import HomeBtn from './components/homebtn/homebtn';
+import HalfWayElement from './components/halfwayelement';
 
 import '@fontsource/poppins';
 
@@ -49,7 +50,9 @@ function App() {
 
   const [loader, setLoader] = useState(false);
 
-  const [submitted, setSubmitted] = useState(false);
+  const [scroll, setScroll] = useState(false);
+
+
 
   async function callAPI() {
     setLoader(true)
@@ -71,6 +74,7 @@ function App() {
 
     setResponseObj(response);
     setLoader(false)
+    setScroll(true)
     return response;
 
 
@@ -97,9 +101,11 @@ function App() {
       setCityChartData(cityPieChartData)
       setBoroughChartData(boroughPieChartData)
       setAllTimeGraphData(processedLineGraphData)
+      setScroll(false);
 
 
       //PAN DOWN
+
     }
 
 
@@ -108,7 +114,6 @@ function App() {
 
   function validRequest() {
     callAPI()
-    setSubmitted(true)
   }
 
 
@@ -148,32 +153,16 @@ function App() {
         })
         break;
     }
-    //}
-
-
-    //console.log(request)
 
 
   }
 
-  // useEffect(() => {
-  //   if (request.borough !== "" && request.job_type !== "") {
-  //     callAPI();
-
-  //   } else {
-  //     console.log("a field is empty")
-  //   }; // This is be executed when `loading` state changes
-  // }, [request])
-
-
-
-
-  console.log(request)
 
   return (
     <div className="App">
       <HomeBtn />
       <Intro />
+      <HalfWayElement scroll={scroll} />
 
       {loader ? <Loader /> : null}
       <Grid container direction="column" className={loader ? "disappear" : "reappear"}>
@@ -194,8 +183,11 @@ function App() {
           <MyMap centerCoordinates={mapCenter} mapShift={borough} permitsObject={entries}
             job_type={request.job_type} />
         </Grid>
+
+
+
         <Grid item style={{ display: "flex", justifyContent: "center" }}>
-          <CityPieChart dataPoints={cityChartData} year={request.year} />
+          <CityPieChart dataPoints={cityChartData} year={request.year} scroll={scroll} />
           <BoroughPieChart dataPoints={boroughChartData}
             year={request.year} borough={request.borough} />
 
@@ -204,13 +196,6 @@ function App() {
           {allTimehData.length > 0 ? <LineChart dataPoints={allTimehData} /> : null}
         </Grid>
       </Grid>
-
-
-
-
-
-
-
 
     </div>
   );

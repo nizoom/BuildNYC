@@ -23,9 +23,10 @@ const MyMap = (props) => {
 
     const markerIcon = assignMarker(props.job_type)
 
+
     //console.log(props.permitsObject)
     return (
-        <div className="map_container">
+        <div className="map_container" >
             <MapContainer center={[40.754932, -73.954016]} zoom={13} scrollWheelZoom={false}
                 whenCreated={setMap}
                 className="leaflet-container">
@@ -56,6 +57,7 @@ const MyMap = (props) => {
                 )) : null}
 
             </MapContainer >
+
         </div >
     )
 }

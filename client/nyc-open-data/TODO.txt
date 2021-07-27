@@ -3,7 +3,7 @@
 3. add background to line chart √
 4. media queries for app 
 5. make UI into one box √
-6. home btn - onclick css needed
+6. home btn - onclick css needed √
 7. map should have border (dark) √
 8. not ready yet message √
 9. submit btn √

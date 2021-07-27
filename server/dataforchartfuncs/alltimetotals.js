@@ -39,8 +39,11 @@ async function getAllTimeTotals() {
             const result = throttle().then(async function () {
                 const yearWithTotal = await getTotal(jobType, year)
                 //console.log(yearWithTotal)
+
+                //still an occasional undefined here
                 return yearWithTotal[0]
             })
+            //console.log(result.length)
             return result // returns a total job count for each year in an object
 
 

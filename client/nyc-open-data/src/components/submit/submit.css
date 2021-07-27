@@ -16,6 +16,7 @@
     font-family: 'Open Sans', sans-serif;
     box-shadow: 0 4px #999;
     border: none;
+    cursor: pointer;
 }
 
 .submit_btn:hover {
