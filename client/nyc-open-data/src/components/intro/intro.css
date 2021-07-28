@@ -14,3 +14,9 @@
     padding-left: 10px;
     font-weight: 300;
 }
+
+/* @media(max-width: 600px){
+    .title_div{
+        font-size: 60%;
+    }
+} */
