@@ -60,6 +60,11 @@
   
 }
 
+.flex_for_charts{
+  display: flex;
+  justify-content: center;
+}
+
 @media(max-width:1200px) {
   .UI_subcontainer{
     flex-flow: column wrap;
@@ -90,6 +95,15 @@
     width: 80%;
     margin: auto;
   }
+
+  .flex_for_charts{
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  
 }
 
 @media(max-width: 550px){

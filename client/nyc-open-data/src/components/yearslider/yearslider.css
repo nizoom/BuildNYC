@@ -83,3 +83,19 @@
     background: #ffffff;
     cursor: pointer;
   }
+
+
+@media(max-height: 750px){
+  .value{
+    font-size: 22.5px;
+  }
+  .component_wrapper{
+    padding-bottom: 35px;
+  }
+}
+
+@media(max-height: 600px){
+  .value{
+    font-size: 20px;
+  }
+}

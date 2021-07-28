@@ -23,12 +23,18 @@ const CityPieChart = (props) => {
 
     const NYCWideLabels = ["Demolitions", "New Buildings", "Building Alterations"];
 
+    function determineFontSize() {
+        const width = window.innerHeight;
+        const size = Math.round(width / 49);
+        return size
+    }
+
 
     return (
-        <div className="cityWide_pie_chart" style={{ color: "white" }}>
+        <div className="pie_chart" style={{ color: "white" }}>
             {props.dataPoints.length > 0 ?
                 <div>
-                    <h3 className="piechart_city_title">
+                    <h3 className="piechart_title">
                         City Wide Development in {props.year}
                     </h3>
                     <h4>  All construction permits for the year: {getTotal(props.dataPoints)} </h4>
@@ -61,7 +67,7 @@ const CityPieChart = (props) => {
                                         data: ["Demolitions", "New Buildings", "Building Alterations"],
                                         color: "white",
                                         font: {
-                                            size: "20px"
+                                            size: determineFontSize()
                                         }
                                     }
                                 }

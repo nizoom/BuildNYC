@@ -1,4 +1,4 @@
-.cityWide_pie_chart{
+.pie_chart{
     width: 27%;
     height: 30%;
     background-image: linear-gradient(to right,#7C65AF, #1B549D);
@@ -7,7 +7,31 @@
     padding: 20px;
 }
 
-.piechart_city_title{
+.piechart_title{
     padding-top: 10px;
+}
 
+/* height doesn't do anything */
+@media(max-width: 750px){
+    .pie_chart{
+        width: 40%;
+    }
+}
+
+@media(max-width: 450px){
+    .pie_chart{
+        width: 50%;
+    }
+    .piechart_title{
+        padding-top: 5px;
+        font-size: 1.05em;
+    }
+}
+
+@media(max-width: 350px){
+    .pie_chart{
+        width: 60%;
+    }
+
+    
 }

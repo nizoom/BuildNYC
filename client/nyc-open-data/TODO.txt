@@ -14,7 +14,9 @@
 ______________
 MEDIA QUERIES 
 
-1. UI 
-2. homebtn;
+1. UI √
+2. homebtn;√
 3. shrinking the legend font in charts
 4. loader
+5. UI btns 
+6. no box shadow on mobile

@@ -190,12 +190,13 @@ function App() {
 
 
 
-        <Grid item style={{ display: "flex", justifyContent: "center" }}>
-          <CityPieChart dataPoints={cityChartData} year={request.year} scroll={scroll} />
-          <BoroughPieChart dataPoints={boroughChartData}
-            year={request.year} borough={request.borough} />
-
-        </Grid>
+        {boroughChartData.length > 0 ? <Grid item>
+          <div className="flex_for_charts">
+            <CityPieChart dataPoints={cityChartData} year={request.year} scroll={scroll} />
+            <BoroughPieChart dataPoints={boroughChartData}
+              year={request.year} borough={request.borough} />
+          </div>
+        </Grid> : null}
         <Grid item>
           {allTimehData.length > 0 ? <LineChart dataPoints={allTimehData} /> : null}
         </Grid>
