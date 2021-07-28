@@ -18,6 +18,12 @@ const BoroughPieChart = (props) => {
         return total.join('.');
     }
 
+    //for responsive data labels 
+    function determineFontSize() {
+        const width = window.innerHeight;
+        const size = Math.round(width / 32);
+        return size
+    }
 
     const boroughLabels = ["Demolitions", "New Buildings", "Building Alterations"];
     return (
@@ -57,7 +63,7 @@ const BoroughPieChart = (props) => {
                                         data: ["Demolitions", "New Buildings", "Building Alterations"],
                                         color: "white",
                                         font: {
-                                            size: "20px"
+                                            size: determineFontSize()
                                         }
                                     }
                                 }
