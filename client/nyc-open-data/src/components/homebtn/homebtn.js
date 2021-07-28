@@ -6,10 +6,9 @@ const HomeBtn = () => {
     return (
         <div>
             <a href="https://www.nissimram.com/#/" target="_blank" rel="noopener noreferrer">
-                <button type="button" className="homebtn"
-                >
+                <button type="button" className="homebtn">
 
-                    <img src={homeImg} alt="Back to Home" />
+                    <img src={homeImg} alt="Back to Home" className="homepic" />
 
                 </button>
             </a>

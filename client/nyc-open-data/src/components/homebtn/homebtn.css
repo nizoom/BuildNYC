@@ -18,3 +18,35 @@
     box-shadow: 0 4px #666;
     transform: translateY(4px);
   }
+
+@media(max-width: 900px){
+    .homebtn{
+        width: 50px;
+    }
+
+    .homepic{
+        width: 40px;
+    }
+}
+
+@media(max-width: 700px){
+    .homebtn{
+        width: 50px;
+        margin:.5%;
+    }
+
+    .homepic{
+        width: 40px;
+    }
+}
+
+@media(max-width: 600px){
+    .homebtn{
+        width: 40px;
+     
+    }
+
+    .homepic{
+        width: 30px;
+    }
+}

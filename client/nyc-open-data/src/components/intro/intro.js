@@ -8,17 +8,24 @@ const Intro = () => {
     const theme = createMuiTheme();
 
     theme.typography.h1 = {
-        "@media(max-width: 600px)": {
+        "@media(max-width: 899px)": {
             fontSize: "4em"
         },
         "@media(max-width: 400px)": {
             fontSize: "3em"
+        },
+        "@media(min-width: 900px)": {
+            fontSize: "6em"
         }
+
     }
 
     theme.typography.h3 = {
-        "@media(max-width: 600px)": {
+        "@media(max-width: 899px)": {
             fontSize: "1.5em"
+        },
+        "@media(min-width: 900px)": {
+            fontSize: "3.0em"
         }
     }
 
