@@ -15,7 +15,7 @@ import formatChartData from './components/charts/formatchartdata';
 import CityPieChart from './components/charts/citypiechart';
 import BoroughPieChart from './components/charts/boroughpiechart';
 import LineChart from './components/charts/linechart';
-import Loader from './components/loader/loader.';
+import Loader from './components/loader/loader';
 
 import HomeBtn from './components/homebtn/homebtn';
 import HalfWayElement from './components/halfwayelement';

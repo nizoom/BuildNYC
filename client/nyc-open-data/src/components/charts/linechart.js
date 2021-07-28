@@ -34,7 +34,7 @@ const LineChart = (props) => {
         return size
     }
 
-    function determineChartHeigh() {
+    function determineChartHeight() {
 
         const width = window.innerWidth;
         console.log(width)
@@ -69,7 +69,7 @@ const LineChart = (props) => {
                     City Wide Construction Data since 1990
                 </h3>
                 <Line
-                    height={determineChartHeigh()}
+                    height={determineChartHeight()}
                     width={5}
                     data={{
                         //labels: ["Demolitions", "New Buildings", "Building Alterations"],

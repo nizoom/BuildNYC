@@ -19,10 +19,46 @@ const HalfWayElement = (props) => {
         }
     }, [props.scroll]);
 
+    // function calcScrollDistance() {
+
+    //     const distance = window.innerHeight / 2
+    //     console.log("scrolling to " + distance + "px");
+
+    //     return `200%`
+    //     //
+    //     //return `${distance}%`
+    // }
+
+    function calcScrollDistance() {
+
+        const width = window.innerWidth;
+        console.log(width)
+
+        if (width >= 1100) { // lrg screens 
+            console.log(5)
+            return "150%"
+        }
+        if (width >= 768 && width <= 1100) { //medium size 
+            console.log(6)
+            return "230%";
+        }
+        if (width >= 480 && width < 768) { // tablet
+            console.log(7)
+            return "240%"
+        }
+        if (width <= 480) { // mobile
+            return "260%"
+        }
+        else {
+            console.log("else 7")
+            return 7;
+        }
+
+    }
     return (
-        <div ref={contentDisplay} style={{
+        <div className="HalfWay Anchor" ref={contentDisplay} style={{
             position: "absolute",
-            top: "180%",
+            top: calcScrollDistance(),
             left: "50%",
             zIndex: 100,
             color: "white"
@@ -30,5 +66,6 @@ const HalfWayElement = (props) => {
         </div>
     )
 }
+
 
 export default HalfWayElement

@@ -43,13 +43,15 @@ async function getAllTimeTotals() {
                 //still an occasional undefined here
                 return yearWithTotal[0]
             })
-            //console.log(result.length)
+
             return result // returns a total job count for each year in an object
 
 
         }))
 
         // add year to the count obj
+        console.log(countObj.length)
+
         const countObjWithYears = []
 
         countObj.forEach(function (el, index) {
@@ -101,6 +103,6 @@ async function getAllTimeTotals() {
     return [newBuildingCount, demolitionCount, buildingAlterationCount]
 }
 
-//getAllTimeTotals();
+getAllTimeTotals();
 
 module.exports = getAllTimeTotals;

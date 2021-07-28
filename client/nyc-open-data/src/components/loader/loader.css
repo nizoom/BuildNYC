@@ -15,6 +15,29 @@ svg * { transform-origin: 50% }
     width: 20%;
     margin: auto;
     border-radius: 16px;
- 
 
+}
+
+@media(max-width: 900px){
+  .goo_wrapper{
+    width: 30%;
+  }
+}
+
+@media(max-width: 600px){
+  .goo_wrapper{
+    width: 40%;
+  }
+}
+
+@media(max-width: 500px){
+  .goo_wrapper{
+    width: 55%;
+  }
+}
+
+@media(max-width: 400px){
+  .goo_wrapper{
+    width: 65%;
+  }
 }
