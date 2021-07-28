@@ -26,6 +26,10 @@
         padding-top: 5px;
         font-size: 1.05em;
     }
+
+    Line{
+        height: 100%;
+    }
 }
 
 @media(max-width: 350px){

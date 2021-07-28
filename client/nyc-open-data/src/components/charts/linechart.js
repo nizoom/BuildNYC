@@ -28,9 +28,38 @@ const LineChart = (props) => {
         return el.count
     })
 
-    // console.log(DMcount);
+    function determineFontSize() {
+        const width = window.innerHeight;
+        const size = Math.round(width / 55);
+        return size
+    }
 
-    // console.log(NBcount);
+    function determineChartHeigh() {
+
+        const width = window.innerWidth;
+        console.log(width)
+
+        if (width >= 1100) {
+            console.log(5)
+            return 5
+        }
+        if (width >= 768 && width <= 1100) {
+            console.log(6)
+            return 6
+        }
+        if (width >= 480 && width < 768) {
+            console.log(7)
+            return 7
+        }
+        if (width <= 480) {
+            return 8.2
+        }
+        else {
+            console.log("else 7")
+            return 7;
+        }
+
+    }
 
     return (
         <div className="outter_linegraph_wrapper">
@@ -40,7 +69,7 @@ const LineChart = (props) => {
                     City Wide Construction Data since 1990
                 </h3>
                 <Line
-                    height={5}
+                    height={determineChartHeigh()}
                     width={5}
                     data={{
                         //labels: ["Demolitions", "New Buildings", "Building Alterations"],
@@ -90,8 +119,9 @@ const LineChart = (props) => {
                                     data: ["Demolitions", "New Buildings", "Building Alterations"],
                                     color: "white",
                                     font: {
-                                        size: "20px"
-                                    }
+                                        size: determineFontSize()
+                                    },
+                                    padding: 25
                                 }
                             }
                         },
