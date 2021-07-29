@@ -1,29 +1,34 @@
 export default function formatChartData(pieData, lineData) {
 
-    if (pieData.length > 0) {
-        //console.log(props.dataPoints[0])
 
-        const rawCityData = pieData[0];
-        const rawBoroughData = pieData[1];
 
-        const [yearlyNewBuildingCounts, yearlyDemolitionCounts, yearlyAlterationCounts] = lineData;
+    const rawCityData = pieData[0];
+    const rawBoroughData = pieData[1];
 
-        //console.log(yearlyNewBuildingCounts)
+    //destructure data by job type
+    const [yearlyNewBuildingCounts, yearlyDemolitionCounts, yearlyAlterationCounts] = lineData;
 
-        //REFACTOR 
 
-        const processedYearlyNewBuildingCounts = processDataForChart(yearlyNewBuildingCounts)
-        const processedYearlyDemolitionCounts = processDataForChart(yearlyDemolitionCounts)
-        const processedYearlyAlterationCounts = processDataForChart(yearlyAlterationCounts)
 
-        const processedLineGraphData = [processedYearlyNewBuildingCounts, processedYearlyDemolitionCounts,
-            processedYearlyAlterationCounts] //REFACTOR 
+    //organizes each line on line graph into an array of objects: example: 
+    // [{count: 1492, year: 2001}} as in 1492 demolitions in the year 2001
 
-        const processedCityData = processDataForChart(rawCityData);
-        const processedBoroughData = processDataForChart(rawBoroughData);
-        // do the same for bar chart data when ready 
-        return [processedCityData, processedBoroughData, processedLineGraphData]
-    }
+    const processedYearlyNewBuildingCounts = processDataForChart(yearlyNewBuildingCounts)
+    const processedYearlyDemolitionCounts = processDataForChart(yearlyDemolitionCounts)
+    const processedYearlyAlterationCounts = processDataForChart(yearlyAlterationCounts)
+
+    //storing all 3 types into one constant 
+    const processedLineGraphData = [processedYearlyNewBuildingCounts, processedYearlyDemolitionCounts,
+        processedYearlyAlterationCounts]
+
+
+    // this should only be 3 numbers. 1 total for each job type. This function converts those str nums
+    // to ints 
+    const processedCityData = processDataForChart(rawCityData);
+    const processedBoroughData = processDataForChart(rawBoroughData);
+
+    return [processedCityData, processedBoroughData, processedLineGraphData]
+
 
 
 

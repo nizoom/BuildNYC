@@ -1,5 +1,5 @@
 export function GetBoroughCoordinates(borough) {
-    //console.log(borough);
+    //LONG, LAT coordinates for map to recenter based on which borough was selcted
     switch (borough) {
 
         case "Manhattan":

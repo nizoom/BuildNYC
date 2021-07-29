@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from "react";
 
 const HalfWayElement = (props) => {
-
+    //animates a scroll down the page after submit so that the user sees there's more than just the 
+    //map to explore
     const contentDisplay = useRef();
 
     const scrollIntoView = () => {
@@ -19,15 +20,6 @@ const HalfWayElement = (props) => {
         }
     }, [props.scroll]);
 
-    // function calcScrollDistance() {
-
-    //     const distance = window.innerHeight / 2
-    //     console.log("scrolling to " + distance + "px");
-
-    //     return `200%`
-    //     //
-    //     //return `${distance}%`
-    // }
 
     function calcScrollDistance() {
 

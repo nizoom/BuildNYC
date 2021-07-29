@@ -14,8 +14,8 @@ const LineChart = (props) => {
         return el.year
     })
 
-    //console.log(yearLabels)
 
+    //stores count per year  only in a new array 
     const NBcount = NBobj.map(el => {
         return el.count
     })

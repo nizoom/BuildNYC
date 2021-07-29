@@ -10,7 +10,7 @@ const processRequest = require('./processrequest')
 
 
 app.get("/borough/:boroughName/type/:job_type/timeSpan/:year", async (req, res) => {
-    //console.log(req.params)
+
     let { boroughName, job_type, year } = req.params;
 
 

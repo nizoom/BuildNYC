@@ -24,10 +24,9 @@ import '@fontsource/poppins';
 
 function App() {
 
-
+  //default state of UI when page loads
   const [request, setRequest] = useState({
     borough: "",
-    //boroughChange: false,
     job_type: "",
     year: 1990,
   })
@@ -36,19 +35,33 @@ function App() {
 
   const [mapCenter, setMapCenter] = useState([40.754932, -73.954016])
 
+  //records new borough when a new borough is selected by the user
+
   const [borough, newBorough] = useState(false);
 
+  //entries holds all the map pin data to be passed to the map
+
   const [entries, receivedEntries] = useState([])
+
+  //holds city chart data/arrays and borough specific data/arrays
 
   const [cityChartData, setCityChartData] = useState([])
 
   const [boroughChartData, setBoroughChartData] = useState([])
 
+
+  // response from backend is initally recorded here and then destructured 
   const [responseObj, setResponseObj] = useState({})
+
+  //holds data for alltime line graph 
 
   const [allTimehData, setAllTimeGraphData] = useState([])
 
+  //determines when loading animation is active 
+
   const [loader, setLoader] = useState(false);
+
+  //determines when to automatically scroll to show content after submit from user
 
   const [scroll, setScroll] = useState(false);
 
@@ -57,20 +70,15 @@ function App() {
   async function callAPI() {
     setLoader(true)
 
-    console.log("API function called")
-    //console.log(request.borough)
-    //console.log("request at API time " + request.borough)
+    //console.log("API function called")
 
+    //destructure request hook so that the fetch request is more readable 
     const [borough, job_type, year] = [request.borough, request.job_type, request.year]
 
 
     const response = await fetch(`/borough/${borough}/type/${job_type}/timeSpan/${year}`)
       .then((res) => res.json())
-      //.then((data) => console.log(data))
-      //.then((data) => setResponseObject(data))
-      //.then((data) => console.log("data in app.js " + data))
       .catch((err) => console.log(err))
-    //console.log(response)
 
     setResponseObj(response);
     setLoader(false)
@@ -81,62 +89,55 @@ function App() {
   }
 
 
-  useEffect(() => { // store data in hooks 
-    //console.log(responseObj)
+  useEffect(() => { // organize data into specific useState hooks 
+
     if (responseObj.hasOwnProperty("allData")) {
-      //
 
-
-      const permitEntries = Object.values(responseObj)[0][0];
+      const permitEntries = Object.values(responseObj)[0][0]; //map pin data
       receivedEntries(permitEntries)
 
-      const rawChartData = Object.values(responseObj)[0][1]
+      const rawChartData = Object.values(responseObj)[0][1] //chart data
       const rawLineGraphData = Object.values(responseObj)[0][2]
 
+      //organizes chart data by year 
       const [cityPieChartData, boroughPieChartData, processedLineGraphData
       ] = formatChartData(rawChartData, rawLineGraphData)
 
 
-
+      //store formatted data in useState hooks
       setCityChartData(cityPieChartData)
       setBoroughChartData(boroughPieChartData)
       setAllTimeGraphData(processedLineGraphData)
       setScroll(false);
 
-
-      //PAN DOWN
-
     }
 
 
 
-  }, [responseObj])
-
-  function validRequest() {
-    callAPI()
-  }
+  }, [responseObj])//every time responseObj changes this useEffect function will fire
 
 
   const changeFromUser = (component, updatedItem) => {
 
-    console.log(component, updatedItem);
+    //console.log(component, updatedItem);
 
-    //either  markers don't change until submitted 
 
-    //or upon one change the map is cleared 
+    receivedEntries([]); //reset map every time there is a change from the user 
 
-    receivedEntries([]);
-
-    // if (submitted) {
+    //this dynamic function fires every time there is a change from a UI component 
     switch (component) {
       case "borough":
-        setRequest({
+        setRequest({ //update state of request 
           ...request,
           borough: updatedItem,
 
         })
+        //if component is borough then the map will be shifted to a new center with this function
         const boroughCoordiantes = GetBoroughCoordinates(updatedItem)
-        //console.log(boroughCoordiantes)
+
+        //if there is a new borough the map component will set a new center based on coordinate props 
+        // generated from the above function 
+
         newBorough(true)
         setMapCenter(boroughCoordiantes)
         break;
@@ -176,7 +177,7 @@ function App() {
                 <JobMenu passJobTypeToParent={changeFromUser} />
               </div>
 
-              <SubmitBtn allUserInputs={request} startRequest={validRequest} />
+              <SubmitBtn allUserInputs={request} startRequest={callAPI} />
             </div>
           </div>
 

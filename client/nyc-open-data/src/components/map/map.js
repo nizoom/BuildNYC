@@ -6,25 +6,22 @@ import assignMarker from './assignmarkercolor';
 
 const MyMap = (props) => {
 
-    const [map, setMap] = useState(null)
+    const [map, setMap] = useState(null) //leaflet boilerplate
 
     const determineCenter = props.mapShift ? moveMap(props.centerCoordinates) : null
 
 
     function moveMap(coordinates) {
 
-        //const [long, lat] = coordinates[0, 1]
-        map.flyTo([coordinates[0], coordinates[1]], 13)
+        map.flyTo([coordinates[0], coordinates[1]], 13) //sets center and zoom level 
     }
 
-
+    //map pins
     const permitLocales = props.permitsObject;
 
-
+    //assigns marker color based on job type
     const markerIcon = assignMarker(props.job_type)
 
-
-    //console.log(props.permitsObject)
     return (
         <div className="map_container" >
             <MapContainer center={[40.754932, -73.954016]} zoom={13} scrollWheelZoom={false}
@@ -63,11 +60,3 @@ const MyMap = (props) => {
 }
 
 export default MyMap;
-
-// Jawg_Dark = L.tileLayer('https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
-// 	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-// 	minZoom: 0,
-// 	maxZoom: 22,
-// 	subdomains: 'abcd',
-// 	accessToken: '<your accessToken>'
-

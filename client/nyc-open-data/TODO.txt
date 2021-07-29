@@ -9,7 +9,9 @@
 9. submit btn √
 10. clear all pins when there is a change to userProps √
 11. shrink pie sharts a bit √
-12. pan down -- change panning point depending on screen size
+12. pan down -- change panning point depending on screen size √
+13. comment code 
+14. delete console logs and extranneous initiations/imports
 
 ______________
 MEDIA QUERIES 
