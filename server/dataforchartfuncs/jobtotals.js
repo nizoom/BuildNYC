@@ -1,7 +1,7 @@
 //THIS AGGREGATES DATA FOR PIE CHARTS 
 async function getJobTotals(formattedYears, formattedBorough) {
 
-    //console.log(formattedYears, formattedJobType, formattedBorough)
+
 
     require('dotenv').config()
 
@@ -19,7 +19,6 @@ async function getJobTotals(formattedYears, formattedBorough) {
         apiCall("A1", false, formattedYears)
     ]);
 
-    // console.log("YO")
     // console.log(totalDMs.count_job_type) // drills down engough to get count from property
 
     const NYCWideTotals = [{ totalDMs: totalDMs.count_job_type },
@@ -45,8 +44,6 @@ async function getJobTotals(formattedYears, formattedBorough) {
 
         //determine if call is borough specific or city wide based on arguements above
 
-        //console.log(formattedYears)
-
         const boroughOrCityWide = borough ? `borough=${borough}&` : ""
 
 
@@ -64,7 +61,7 @@ async function getJobTotals(formattedYears, formattedBorough) {
                     "app_token": apiKey
                 }
             }).then(response => response.json())
-            // .then(data => console.log("Here is the data " + data))
+
             .catch(error => {
                 console.error('The error is:', error);
             });
@@ -72,13 +69,8 @@ async function getJobTotals(formattedYears, formattedBorough) {
         return response[0]
     }
 
-    // console.log(NYCWideTotals)
-    // console.log(givenBoroughTotals)
     return [NYCWideTotals, givenBoroughTotals]
 }
 
-//getJobTotals(['1991-01-01T12:00:00', '1992-1990-01-01T12:00:00'], "DM", "BRONX")
-
-//getJobTotals(['1991-01-01T12:00:00', '1992-1990-01-01T12:00:00'], "BRONX")
 
 module.exports = getJobTotals;

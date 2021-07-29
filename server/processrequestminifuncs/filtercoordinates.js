@@ -18,21 +18,3 @@ function filterCoordinates(rawData) {
 //ilterCoordinates();
 
 module.exports = filterCoordinates;
-
-
-  // let indexesOfNaN = []
-
-    // testData.forEach(obj => {
-    //     console.log("Firing")
-    //     if (isNaN(obj.gis_latitude) === false) {
-    //         console.log("Found one ")
-    //         console.log(obj)
-    //         console.log(testData.indexOf(obj));
-
-    //         indexesOfNaN.push(testData.indexOf(obj))
-    //     }
-    // })
-
-       //rawData.splice() //ITERATE
-    // remove those indexes by iterating through the list of indexes and remove that building element
-    //in the raw data array

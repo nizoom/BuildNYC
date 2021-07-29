@@ -3,7 +3,7 @@ async function getAllTimeTotals() {
 
     require('dotenv').config()
 
-
+    //throttling was required otherwise there was too many api calls at once
     const throttle = require('promise-ratelimit')(25); /* rateInMilliseconds */
 
 
@@ -27,20 +27,19 @@ async function getAllTimeTotals() {
 
         let years = []
 
-        // problem with awaiting each call to finish takes to long
+        // problem with awaiting each call to finish takes too long
         for (let year = 1990; year < currentYear; year++) {
             years.push(year);
         }
 
 
-        //node rate limiter goes here potentially 
+
         //map is not ever an async function so you have to wrap it in Promise.all 
         const countObj = await Promise.all(years.map(async year => {
             const result = throttle().then(async function () {
                 const yearWithTotal = await getTotal(jobType, year)
-                //console.log(yearWithTotal)
 
-                //still an occasional undefined here
+
                 return yearWithTotal[0]
             })
 
@@ -49,14 +48,14 @@ async function getAllTimeTotals() {
 
         }))
 
-        // add year to the count obj
+
         console.log(countObj.length)
 
         const countObjWithYears = []
 
+        // add year to the count obj
         countObj.forEach(function (el, index) {
-            //console.log(el)
-            //some years are undefined? 
+
             if (el != undefined) { // MAY HAVE TO DEAL WITH COUNTS THAT ARE UNDEFINED? 
                 el.year = years[index]
                 countObjWithYears.push(el)
@@ -65,6 +64,7 @@ async function getAllTimeTotals() {
                 console.log("undefined detected")
             }
         })
+
         //console.log(countObjWithYears.length)
         return countObjWithYears
 
@@ -95,8 +95,7 @@ async function getAllTimeTotals() {
             return response;
 
 
-            //add the year property in manually 
-            //${year}-01-01T12:00:00
+
         }
     }
     //console.log([newBuildingCount, demolitionCount, buildingAlterationCount])

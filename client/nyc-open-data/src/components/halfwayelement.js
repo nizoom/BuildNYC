@@ -28,7 +28,7 @@ const HalfWayElement = (props) => {
 
         if (width >= 1100) { // lrg screens 
             console.log(5)
-            return "150%"
+            return "190%"
         }
         if (width >= 768 && width <= 1100) { //medium size 
             console.log(6)

@@ -31,6 +31,7 @@ async function processRequest(job_type, year, borough) {
 
     //AGGRAGATING GRAPH DATA
 
+    //all construction type totals for a given year
     const permitTypeTotals = await getJobTotals(formattedYears, formattedBorough)
 
     const allTimeTotals = await getAllTimeTotals()
