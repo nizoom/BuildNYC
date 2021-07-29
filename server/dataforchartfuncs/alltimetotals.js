@@ -102,6 +102,6 @@ async function getAllTimeTotals() {
     return [newBuildingCount, demolitionCount, buildingAlterationCount]
 }
 
-getAllTimeTotals();
+//getAllTimeTotals();
 
 module.exports = getAllTimeTotals;
