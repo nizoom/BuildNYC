@@ -13,11 +13,11 @@ Select a year, borough, and a construction type and click submit. Once the resul
 
 ## Installation and set up instructions
 
-After cloning this repo, run npm install to install all dependencies. Please note that the app requires an API for NYC Open Data's database. You can find out how to make your own here: https://opendata.cityofnewyork.us/how-to/#apidocumentation
+After cloning this repo, run npm install to install all dependencies. Please note that the app requires an API key for NYC Open Data's database. You can find out how to make your own here: https://opendata.cityofnewyork.us/how-to/#apidocumentation
 
 ## Using the app on your machine
 
-Once you have an API key, make sure to save it in an env variable where it is accessible to the backend in ```./server ``` folder. To start the app on your machine first start the node server by changing to the ```./server ``` directory and running ```npm start```. Then change into ```client/nyc-open-data/src/``` and run the same command. That will initiate the app to run in your browser at ```localhost: 3000``` . 
+Once you have an API key, make sure to save it in an env variable where it is accessible to the backend in ```./server ``` folder. To start the app on your machine first spin up the node server by changing to the ```./server ``` directory and running ```npm start```. Then change into ```client/nyc-open-data/src/``` and run the same command. That will initiate the app to run in your browser at ```localhost: 3000``` . 
 
 ## Reflection
 
